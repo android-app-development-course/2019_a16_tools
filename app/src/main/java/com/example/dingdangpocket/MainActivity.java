@@ -24,7 +24,8 @@ public class MainActivity extends AppCompatActivity
 
     BottomNavigationView bnView;
     ViewPager viewPager;
-    //修改者：Guo
+    //修改者：Guo & Chen
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
