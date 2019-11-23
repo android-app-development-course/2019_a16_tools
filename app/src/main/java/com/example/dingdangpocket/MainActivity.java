@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity
     ViewPager viewPager;
     //修改者：Guo & Chen
 
+    int a=100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
