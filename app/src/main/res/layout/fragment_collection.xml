@@ -20,22 +20,8 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:text="btn1"/>
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:text="btn1"/>
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:text="btn1"/>
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:text="btn1"/>
+            <!-- 控件放在这里 -->
+            <!-- 也可以换掉LinearLayout，只要在NestedScrollView里面就行了 -->
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
