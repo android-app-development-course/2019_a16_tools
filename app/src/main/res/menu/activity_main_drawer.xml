@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <!-- 用group并且设置id是为了添加分割线 -->
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_selfcenter"
+            android:icon="@drawable/mycenter"
+            android:title="个人中心" />
+    </group>
+
+    <group
+        android:id="@+id/group2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_alltools"
+            android:icon="@drawable/all"
+            android:title="全部工具" />
+        <item
+            android:id="@+id/nav_thememanager"
+            android:icon="@drawable/theme"
+            android:title="主题管理" />
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/setting"
+            android:title="设置"/>
+    </group>
+
+    <group
+        android:id="@+id/group3"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_feedback"
+            android:icon="@drawable/feedback"
+            android:title="意见反馈"/>
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/about"
+            android:title="关于"/>
+        <item
+            android:id="@+id/nav_exit"
+            android:icon="@drawable/exit"
+            android:title="退出"/>
+    </group>
+
+
+</menu>

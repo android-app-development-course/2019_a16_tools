@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">DingDangPocket</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="toolbar_title">叮当猫的口袋</string>
+    <string name="toolbar_subtitle">有限的道具，无限的童真</string>
+
+    <string name="nav_header_title">野比大雄</string>
+</resources>
