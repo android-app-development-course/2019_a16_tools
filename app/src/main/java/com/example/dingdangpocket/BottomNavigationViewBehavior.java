@@ -7,7 +7,7 @@ import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
-// 用于底部菜单随滑动而隐藏或者出现..
+// 用于底部菜单随滑动而隐藏或者出现.....
 
 public class BottomNavigationViewBehavior extends CoordinatorLayout.Behavior<View> {
 
