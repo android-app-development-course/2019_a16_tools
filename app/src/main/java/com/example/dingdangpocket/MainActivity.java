@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        // ------------------ 底部导航栏, viewpager嵌fragment, 可左右滑动，可直接点----------------
+        // ---------------0--- 底部导航栏, viewpager嵌fragment, 可左右滑动，可直接点----------------
 
         bnView = findViewById(R.id.bottom_nav_view);
         viewPager = findViewById(R.id.view_pager);
