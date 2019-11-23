@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity
     BottomNavigationView bnView;
     ViewPager viewPager;
 
-    int temp = 0;
+    int temp = 10000000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
