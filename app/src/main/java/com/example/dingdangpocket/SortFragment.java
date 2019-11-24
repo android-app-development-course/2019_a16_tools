@@ -36,7 +36,7 @@ public class SortFragment extends Fragment {
 //        getActivity().setContentView(R.layout.fragment_sort);
 
         //初始化布局和适配器,直接粘就行.
-        final TagFlowLayout mFlowLayout = (TagFlowLayout) view.findViewById(R.id.id_flowlayout);
+        final TagFlowLayout mFlowLayout = view.findViewById(R.id.id_flowlayout);
         mFlowLayout.setAdapter(new TagAdapter<String>(mVals)
         {
 
