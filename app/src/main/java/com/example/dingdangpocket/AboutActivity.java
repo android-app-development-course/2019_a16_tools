@@ -32,7 +32,7 @@ public class AboutActivity extends AppCompatActivity{
         View aboutPage = new AboutPage(this)
                 .isRTL(false)
                 .setImage(R.drawable.daxiong)//图片
-                .setDescription("道理我都懂，可我就是不听啊")//介绍
+                .setDescription(" ")//介绍
                 .addItem(new Element().setTitle("Version 1.0"))
                 .addGroup("与我联系")
                 .addEmail("zhaoweihaochn@foxmail.com")//邮箱
