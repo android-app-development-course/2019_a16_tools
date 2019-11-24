@@ -14,39 +14,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-
         <LinearLayout
-            xmlns:zhy="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/activity_flow_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="vertical">
-            <com.cy.cyflowlayoutlibrary.FlowLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/fl"
-                android:layout_width="match_parent"
-                app:width_space="10dp"
-                app:height_space="10dp"
-                android:padding="10dp"
-                android:layout_height="400dp">
 
+            <!-- 控件放在这里 -->
+            <!-- 也可以换掉LinearLayout，只要在NestedScrollView里面就行了 -->
 
-            </com.cy.cyflowlayoutlibrary.FlowLayout>
-
-            <com.zhy.view.flowlayout.TagFlowLayout
-                android:id="@+id/id_flowlayout"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
-                zhy:max_select="-1"
-                >
-            </com.zhy.view.flowlayout.TagFlowLayout>
         </LinearLayout>
-
-
-
-
     </android.support.v4.widget.NestedScrollView>
-
 </LinearLayout>

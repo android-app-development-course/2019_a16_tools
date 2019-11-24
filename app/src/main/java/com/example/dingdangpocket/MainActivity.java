@@ -1,5 +1,6 @@
 package com.example.dingdangpocket;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -140,7 +141,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_selfcenter) {
-            // Handle the camera action
+
         } else if (id == R.id.nav_alltools) {
 
         } else if (id == R.id.nav_thememanager) {
@@ -150,7 +151,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_feedback) {
 
         } else if (id == R.id.nav_about) {
-
+            startActivity(new Intent(MainActivity.this, AboutActivity.class));
         }else if(id == R.id.nav_exit){
 
         }
