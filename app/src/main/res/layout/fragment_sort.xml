@@ -23,6 +23,7 @@
             <!-- 控件放在这里 -->
             <!-- 也可以换掉LinearLayout，只要在NestedScrollView里面就行了 -->
 
+
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </LinearLayout>
