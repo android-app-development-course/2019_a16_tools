@@ -23,54 +23,55 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <View
+                style="@style/ViewLine"/>
             <TextView
                 style="@style/TextViewSortName"
                 android:text="@string/sort_name_1"
                 />
             <com.zhy.view.flowlayout.TagFlowLayout
                 android:id="@+id/id_flowlayout_1"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
+                style="@style/FlowLayout"
                 zhy:max_select="-1"
-                >
-            </com.zhy.view.flowlayout.TagFlowLayout>
+                />
+
+            <View
+                style="@style/ViewLine"/>
             <TextView
                 style="@style/TextViewSortName"
                 android:text="@string/sort_name_2"
                 />
             <com.zhy.view.flowlayout.TagFlowLayout
                 android:id="@+id/id_flowlayout_2"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
+                style="@style/FlowLayout"
                 zhy:max_select="-1"
-                >
-            </com.zhy.view.flowlayout.TagFlowLayout>
+                />
+            <View
+                style="@style/ViewLine"/>
             <TextView
                 style="@style/TextViewSortName"
                 android:text="@string/sort_name_3"
                 />
             <com.zhy.view.flowlayout.TagFlowLayout
                 android:id="@+id/id_flowlayout_3"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
+                style="@style/FlowLayout"
                 zhy:max_select="-1"
-                >
-            </com.zhy.view.flowlayout.TagFlowLayout>
+                />
+
+            <View
+                style="@style/ViewLine"/>
             <TextView
                 style="@style/TextViewSortName"
                 android:text="@string/sort_name_4"
                 />
             <com.zhy.view.flowlayout.TagFlowLayout
                 android:id="@+id/id_flowlayout_4"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
+                style="@style/FlowLayout"
                 zhy:max_select="-1"
-                >
-            </com.zhy.view.flowlayout.TagFlowLayout>
+                />
+
+            <View
+                style="@style/ViewLine"/>
             <TextView
                 style="@style/TextViewSortName"
                 android:text="@string/sort_name_5"
@@ -78,24 +79,20 @@
 
             <com.zhy.view.flowlayout.TagFlowLayout
                 android:id="@+id/id_flowlayout_5"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
-                zhy:max_select="-1">
+                style="@style/FlowLayout"
+                zhy:max_select="-1"/>
 
-            </com.zhy.view.flowlayout.TagFlowLayout>
+            <View
+                style="@style/ViewLine"/>
             <TextView
                 style="@style/TextViewSortName"
                 android:text="@string/sort_name_6"
                 />
             <com.zhy.view.flowlayout.TagFlowLayout
                 android:id="@+id/id_flowlayout_6"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
+                style="@style/FlowLayout"
                 zhy:max_select="-1"
-                >
-            </com.zhy.view.flowlayout.TagFlowLayout>
+                />
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>

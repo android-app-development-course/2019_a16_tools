@@ -17,4 +17,6 @@
     <string name="sort_name_4">分类名称4</string>
     <string name="sort_name_5">分类名称5</string>
     <string name="sort_name_6">分类名称6</string>
+
+    <string name="my_collection">我的收藏</string>
 </resources>

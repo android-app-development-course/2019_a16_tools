@@ -31,6 +31,20 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">24sp</item>
+        <item name="android:paddingStart">20sp</item>
+        <item name="android:paddingTop">20sp</item>
+    </style>
+
+    <style name="ViewLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">5sp</item>
+        <item name="android:background">@color/textViewBackground</item>
+    </style>
+
+    <style name="FlowLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">20sp</item>
     </style>
 
 </resources>

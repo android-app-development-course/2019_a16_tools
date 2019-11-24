@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
+    xmlns:zhy="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_above="@+id/bottom_nav_view"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -20,8 +20,15 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <!-- 控件放在这里 -->
-            <!-- 也可以换掉LinearLayout，只要在NestedScrollView里面就行了 -->
+            <TextView
+                style="@style/TextViewSortName"
+                android:text="@string/my_collection"
+                />
+            <com.zhy.view.flowlayout.TagFlowLayout
+                android:id="@+id/id_flowlayout_collection"
+                style="@style/FlowLayout"
+                zhy:max_select="-1"
+                />
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
