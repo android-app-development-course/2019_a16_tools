@@ -33,7 +33,7 @@ public class SortFragment extends Fragment {
 
         //获取布局填充器,一会将tv.xml文件填充到标签内.
         final LayoutInflater mInflater = LayoutInflater.from(getActivity());
-//        getActivity().setContentView(R.layout.fragment_sort);
+
 
         //初始化布局和适配器,直接粘就行.
         final TagFlowLayout mFlowLayout = view.findViewById(R.id.id_flowlayout);
