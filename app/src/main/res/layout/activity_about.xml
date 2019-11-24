@@ -17,16 +17,14 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
-
     </android.support.design.widget.AppBarLayout>
 
     <RelativeLayout
         android:id="@+id/about_relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         >
-
 
     </RelativeLayout>
 

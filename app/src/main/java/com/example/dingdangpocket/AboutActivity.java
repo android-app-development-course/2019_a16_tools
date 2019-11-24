@@ -31,7 +31,7 @@ public class AboutActivity extends AppCompatActivity{
 
         View aboutPage = new AboutPage(this)
                 .isRTL(false)
-                .setImage(R.drawable.lingdang)//图片
+                .setImage(R.drawable.lingdang2)//图片
                 .setDescription("有限的道具，无限的童真")//介绍
                 .addItem(new Element().setTitle("Version 1.0"))
                 .addGroup("与我们联系")
