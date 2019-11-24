@@ -30,9 +30,10 @@
     <style name="TextViewSortName">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">24sp</item>
-        <item name="android:paddingStart">20sp</item>
-        <item name="android:paddingTop">20sp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:paddingStart">15sp</item>
+        <item name="android:paddingTop">10sp</item>
+        <item name="android:layout_marginBottom">-15sp</item>
     </style>
 
     <style name="ViewLine">
@@ -44,7 +45,7 @@
     <style name="FlowLayout">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:padding">20sp</item>
+        <item name="android:padding">15sp</item>
     </style>
 
 </resources>
