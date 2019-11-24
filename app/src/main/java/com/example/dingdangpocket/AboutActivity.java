@@ -31,13 +31,12 @@ public class AboutActivity extends AppCompatActivity{
 
         View aboutPage = new AboutPage(this)
                 .isRTL(false)
-                .setImage(R.drawable.daxiong)//图片
-                .setDescription(" ")//介绍
+                .setImage(R.drawable.lingdang)//图片
+                .setDescription("有限的道具，无限的童真")//介绍
                 .addItem(new Element().setTitle("Version 1.0"))
-                .addGroup("与我联系")
+                .addGroup("与我们联系")
                 .addEmail("zhaoweihaochn@foxmail.com")//邮箱
                 .addWebsite("http://zhaoweihao.me")//网站
-                .addPlayStore("com.example.abouttest")//应用商店
                 .addGitHub("zhaoweihaoChina")//github
                 .create();
 
