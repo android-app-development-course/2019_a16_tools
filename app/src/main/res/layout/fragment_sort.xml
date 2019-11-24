@@ -22,20 +22,74 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <com.cy.cyflowlayoutlibrary.FlowLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/fl"
-                android:layout_width="match_parent"
-                app:width_space="10dp"
-                app:height_space="10dp"
-                android:padding="10dp"
-                android:layout_height="400dp">
 
-
-            </com.cy.cyflowlayoutlibrary.FlowLayout>
+            <TextView
+                style="@style/TextViewSortName"
+                android:text="@string/sort_name_1"
+                />
+            <com.zhy.view.flowlayout.TagFlowLayout
+                android:id="@+id/id_flowlayout_1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                zhy:max_select="-1"
+                >
+            </com.zhy.view.flowlayout.TagFlowLayout>
+            <TextView
+                style="@style/TextViewSortName"
+                android:text="@string/sort_name_2"
+                />
+            <com.zhy.view.flowlayout.TagFlowLayout
+                android:id="@+id/id_flowlayout_2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                zhy:max_select="-1"
+                >
+            </com.zhy.view.flowlayout.TagFlowLayout>
+            <TextView
+                style="@style/TextViewSortName"
+                android:text="@string/sort_name_3"
+                />
+            <com.zhy.view.flowlayout.TagFlowLayout
+                android:id="@+id/id_flowlayout_3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                zhy:max_select="-1"
+                >
+            </com.zhy.view.flowlayout.TagFlowLayout>
+            <TextView
+                style="@style/TextViewSortName"
+                android:text="@string/sort_name_4"
+                />
+            <com.zhy.view.flowlayout.TagFlowLayout
+                android:id="@+id/id_flowlayout_4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                zhy:max_select="-1"
+                >
+            </com.zhy.view.flowlayout.TagFlowLayout>
+            <TextView
+                style="@style/TextViewSortName"
+                android:text="@string/sort_name_5"
+                />
 
             <com.zhy.view.flowlayout.TagFlowLayout
-                android:id="@+id/id_flowlayout"
+                android:id="@+id/id_flowlayout_5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                zhy:max_select="-1">
+
+            </com.zhy.view.flowlayout.TagFlowLayout>
+            <TextView
+                style="@style/TextViewSortName"
+                android:text="@string/sort_name_6"
+                />
+            <com.zhy.view.flowlayout.TagFlowLayout
+                android:id="@+id/id_flowlayout_6"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:padding="20dp"
@@ -43,9 +97,6 @@
                 >
             </com.zhy.view.flowlayout.TagFlowLayout>
         </LinearLayout>
-
-
-
 
     </android.support.v4.widget.NestedScrollView>
 

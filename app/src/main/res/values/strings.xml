@@ -11,4 +11,10 @@
     <string name="toolbar_subtitle">有限的道具，无限的童真</string>
 
     <string name="nav_header_title">野比大雄</string>
+    <string name="sort_name_1">分类名称1</string>
+    <string name="sort_name_2">分类名称2</string>
+    <string name="sort_name_3">分类名称3</string>
+    <string name="sort_name_4">分类名称4</string>
+    <string name="sort_name_5">分类名称5</string>
+    <string name="sort_name_6">分类名称6</string>
 </resources>
