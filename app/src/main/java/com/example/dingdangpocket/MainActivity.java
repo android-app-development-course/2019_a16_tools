@@ -141,6 +141,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_selfcenter) {
+            //单击个人中心进入登录界面
+            Intent intent=new Intent(this,Login.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_alltools) {
 

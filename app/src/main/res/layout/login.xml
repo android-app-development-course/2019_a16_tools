@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <TextView
+        android:id="@+id/lv"
+        style="@style/textStyle"
+        android:layout_marginTop="90dp"
+        android:gravity="center"
+        android:textColor="#000"
+        android:text="@string/network" />
+    <LinearLayout
+        android:id="@+id/le"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lv"
+        android:orientation="vertical"
+        android:layout_marginTop="70dp">
+        <EditText
+            android:id="@+id/account"
+            style="@style/editviewStyle"
+            android:hint="@string/account" />
+
+        <EditText
+            android:id="@+id/password"
+            style="@style/editviewStyle"
+            android:password="true"
+            android:hint="@string/password" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/le"
+        android:paddingBottom="30dp"
+
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <Button
+            android:id="@+id/login"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="80dp"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:background="@mipmap/go_to_link" />
+
+        <Button
+            android:id="@+id/forgoten"
+            style="@style/buttonStyle"
+            android:text="@string/forgot"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@id/login"
+            android:layout_marginRight="20dp"
+            android:gravity="left"/>
+
+        <Button
+            android:id="@+id/change"
+            style="@style/buttonStyle"
+            android:text="@string/change"
+            android:layout_alignLeft="@id/login"
+            android:layout_marginLeft="20dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="right"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
