@@ -5,7 +5,7 @@
     <!-- 用group并且设置id是为了添加分割线 -->
     <group
         android:id="@+id/group1"
-        android:checkableBehavior="single">
+        android:checkableBehavior="none">
         <item
             android:id="@+id/nav_selfcenter"
             android:icon="@drawable/mycenter"
@@ -14,7 +14,7 @@
 
     <group
         android:id="@+id/group2"
-        android:checkableBehavior="single">
+        android:checkableBehavior="none">
         <item
             android:id="@+id/nav_alltools"
             android:icon="@drawable/all"
@@ -31,7 +31,7 @@
 
     <group
         android:id="@+id/group3"
-        android:checkableBehavior="single">
+        android:checkableBehavior="none">
         <item
             android:id="@+id/nav_feedback"
             android:icon="@drawable/feedback"
