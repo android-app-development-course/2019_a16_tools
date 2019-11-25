@@ -15,6 +15,10 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.widget.Toast;
+
+import com.wyt.searchbox.SearchFragment;
+import com.wyt.searchbox.custom.IOnSearchClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +31,7 @@ public class MainActivity extends AppCompatActivity
     ViewPager viewPager;
     //修改者：Guo & Chen
 
-    int a=100;
+    SearchFragment searchFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +102,21 @@ public class MainActivity extends AppCompatActivity
             }
         });
         //-----------------------------end--------------------------------------------
+
+        //--------------
+        searchFragment = SearchFragment.newInstance();
+        searchFragment.setOnSearchClickListener(new IOnSearchClickListener() {
+            @Override
+            public void OnSearchClick(String keyword) {
+                //这里处理逻辑
+                Toast.makeText(MainActivity.this, keyword, Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
+
+
+
 
     @Override
     public void onBackPressed() {
@@ -127,6 +145,7 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_search) {
+            searchFragment.show(getSupportFragmentManager(),SearchFragment.TAG);
             return true;
         }
 
