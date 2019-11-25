@@ -14,14 +14,66 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical">
 
-            <!-- 控件放在这里 -->
-            <!-- 也可以换掉LinearLayout，只要在NestedScrollView里面就行了 -->
+            <TextView
+                style="@style/TextViewSortName"
+                android:text="@string/update_log"
+                android:layout_marginBottom="0sp"/>
+            <TextView
+                style="@style/TextDetail"
+                android:text="@string/default_log_detail"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+            <view
+                style="@style/ViewLine"/>
+            <TextView
+                style="@style/TextViewSortName"
+                android:text="@string/recommend_tools"
+                android:layout_marginBottom="0sp"/>
+
+            <TextView
+                style="@style/TextViewSortName"
+                android:text="@string/default_tools_name"
+                android:layout_marginBottom="0sp"
+                android:textStyle="normal"/>
+            <TextView
+                style="@style/TextDetail"
+                android:text="@string/default_tools_detail"/>
+            <view
+                style="@style/ViewLine.Small"/>
+
+            <TextView
+                style="@style/TextViewSortName"
+                android:text="@string/default_tools_name"
+                android:layout_marginBottom="0sp"
+                android:textStyle="normal"/>
+            <TextView
+                style="@style/TextDetail"
+                android:text="@string/default_tools_detail"/>
+            <view
+                style="@style/ViewLine.Small"/>
+
+            <TextView
+                style="@style/TextViewSortName"
+                android:text="@string/default_tools_name"
+                android:layout_marginBottom="0sp"
+                android:textStyle="normal"/>
+            <TextView
+                style="@style/TextDetail"
+                android:text="@string/default_tools_detail"/>
+
+
+        </LinearLayout>
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>

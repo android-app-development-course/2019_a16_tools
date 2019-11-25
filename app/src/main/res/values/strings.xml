@@ -32,4 +32,9 @@
     <string name="select">请选择语言</string>
 
     <string name="my_collection">我的收藏</string>
+    <string name="update_log">更新日志</string>
+    <string name="recommend_tools">推荐工具</string>
+    <string name="default_log_detail">更新日志的详细描述</string>
+    <string name="default_tools_detail">工具的详细描述</string>
+    <string name="default_tools_name">工具名称</string>
 </resources>
