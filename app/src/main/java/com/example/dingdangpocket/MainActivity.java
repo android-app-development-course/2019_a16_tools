@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity
         //-----------------------------end--------------------------------------------
 
 
-        //------------------------搜索栏初始化---------------------------------------
+        //------------------------搜索栏初始化！---------------------------------------
         searchFragment = SearchFragment.newInstance();
         searchFragment.setOnSearchClickListener(new IOnSearchClickListener() {
             @Override
