@@ -23,8 +23,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <View
-                style="@style/ViewLine"/>
             <TextView
                 style="@style/TextViewSortName"
                 android:text="@string/sort_name_1"
