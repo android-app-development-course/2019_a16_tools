@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
-    Button login,change;
+    Button login,change,back;
     EditText account,password;
     String ac="",pw="",lang;
     int number,languageType,selection;
@@ -23,10 +23,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         //实例化对象
         setContentView(R.layout.login);
         login=(Button)findViewById(R.id.login);
+        back=(Button)findViewById(R.id.back);
         final EditText account=(EditText) findViewById(R.id.account);
         final EditText password=(EditText) findViewById(R.id.password);
         change=(Button)findViewById(R.id.change);
         login.setOnClickListener(this);
+        back.setOnClickListener(this);
 
         Intent intent1=getIntent();
         languageType=getIntent().getIntExtra("languageTYpe",0);
@@ -88,6 +90,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 break;
             }
             case R.id.change: {
+            }
+            case R.id.back: {
+                finish();
             }
         }
     }
