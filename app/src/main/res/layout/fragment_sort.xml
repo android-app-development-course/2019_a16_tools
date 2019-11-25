@@ -85,6 +85,7 @@
             <TextView
                 style="@style/TextViewSortName"
                 android:text="@string/sort_name_6"
+
                 />
             <com.zhy.view.flowlayout.TagFlowLayout
                 android:id="@+id/id_flowlayout_6"
