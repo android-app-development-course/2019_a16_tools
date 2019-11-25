@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical">
-            <view
+            <View
                 style="@style/ViewLine"/>
             <TextView
                 style="@style/TextViewSortName"
@@ -49,7 +49,7 @@
             <TextView
                 style="@style/TextDetail"
                 android:text="@string/default_tools_detail"/>
-            <view
+            <View
                 style="@style/ViewLine.Small"/>
 
             <TextView
@@ -60,7 +60,7 @@
             <TextView
                 style="@style/TextDetail"
                 android:text="@string/default_tools_detail"/>
-            <view
+            <View
                 style="@style/ViewLine.Small"/>
 
             <TextView
