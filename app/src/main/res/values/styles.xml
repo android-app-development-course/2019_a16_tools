@@ -82,6 +82,8 @@
         <item name="android:background">@drawable/rounded_edittext</item>
     </style>
 
+
+
     <style name="TextDetail">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

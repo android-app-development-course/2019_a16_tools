@@ -44,4 +44,6 @@
         app:layout_behavior="com.example.dingdangpocket.BottomNavigationViewBehavior"/>
 
 
+
+
 </android.support.design.widget.CoordinatorLayout>
