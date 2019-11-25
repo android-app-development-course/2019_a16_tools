@@ -78,6 +78,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 else if(ac.equals("10086") &&pw.equals("10086")&&number>0){
                     Toast.makeText(this,getResources().getString(R.string.success),Toast.LENGTH_SHORT).show();
                     finish();
+
                 }
                 //匹配失败
                 else if(number>0){
