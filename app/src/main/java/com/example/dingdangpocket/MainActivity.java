@@ -142,8 +142,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_selfcenter) {
             //单击个人中心进入登录界面
-            Intent intent=new Intent(this,Login.class);
-            startActivity(intent);
+            startActivity(new Intent(this,Userpage.class));
 
         } else if (id == R.id.nav_alltools) {
 
@@ -155,8 +154,11 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_about) {
             startActivity(new Intent(MainActivity.this, AboutActivity.class));
-        }else if(id == R.id.nav_exit){
-
+        }else if(id==R.id.logout){
+            startActivity(new Intent(this,Login.class));
+        }
+        else if(id == R.id.nav_exit){
+            finish();
         }
 
         // 注释掉之后，关闭activity之后左侧菜单还显示
