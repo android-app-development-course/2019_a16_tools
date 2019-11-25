@@ -12,7 +12,6 @@
         <activity android:name=".Userpage"></activity>
         <activity android:name=".AboutActivity"
             android:label="关于">
-
         </activity>
         <activity android:name=".Login"></activity>
         <activity
