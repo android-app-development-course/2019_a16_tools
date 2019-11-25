@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Userpage"
+    android:clipChildren="false">
+
+    <AbsoluteLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="#A8BFC0">
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_x="20dp"
+            android:layout_y="20dp"
+            android:background="@mipmap/back" />
+
+        <com.example.dingdangpocket.XCRoundRectImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="250dp"
+            android:layout_x="20dp"
+            android:layout_y="260dp"
+            android:src="@drawable/daxiong" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="100dp"
+            android:layout_y="260dp"
+            android:text="野比大雄"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+
+    </AbsoluteLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false">
+
+    </LinearLayout>
+
+
+</AbsoluteLayout>

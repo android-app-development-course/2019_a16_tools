@@ -15,6 +15,9 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -97,6 +100,7 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
+        //用户信息点击事件监听
         //-----------------------------end--------------------------------------------
     }
 
@@ -142,7 +146,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_selfcenter) {
             //单击个人中心进入登录界面
-            Intent intent=new Intent(this,Login.class);
+            Intent intent=new Intent(this,Userpage.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_alltools) {
@@ -155,8 +159,13 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_about) {
             startActivity(new Intent(MainActivity.this, AboutActivity.class));
-        }else if(id == R.id.nav_exit){
-
+        }
+        else if(id==R.id.logout) {
+            Intent intent=new Intent(this,Login.class);
+            startActivity(intent);
+        }
+        else if(id == R.id.nav_exit){
+            finish();
         }
 
         // 注释掉之后，关闭activity之后左侧菜单还显示
