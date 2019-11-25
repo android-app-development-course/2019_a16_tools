@@ -75,4 +75,6 @@
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/rounded_edittext</item>
     </style>
+
+
 </resources>
