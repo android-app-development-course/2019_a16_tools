@@ -51,6 +51,7 @@
         android:text="男   本科在读"/>
 
     <com.example.dingdangpocket.RichText
+        xmlns:view="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_x="21dp"
@@ -61,10 +62,11 @@
         android:textColor="#971B1A1A"
         android:textSize="14sp"
         android:visibility="visible"
-        app:drawable_height="9dp"
-        app:drawable_src="@mipmap/region"
-        app:drawable_width="9dp" />
+        view:drawable_height="9dp"
+        view:drawable_src="@mipmap/region"
+        view:drawable_width="9dp" />
     <com.example.dingdangpocket.RichText
+        xmlns:view="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_x="20dp"
@@ -75,10 +77,11 @@
         android:textColor="#971B1A1A"
         android:textSize="14sp"
         android:visibility="visible"
-        app:drawable_height="7dp"
-        app:drawable_src="@drawable/edit"
-        app:drawable_width="7dp" />
+        view:drawable_height="7dp"
+        view:drawable_src="@drawable/edit"
+        view:drawable_width="7dp" />
     <com.example.dingdangpocket.RichText
+        xmlns:view="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_x="20dp"
@@ -89,10 +92,11 @@
         android:textColor="#971B1A1A"
         android:textSize="14sp"
         android:visibility="visible"
-        app:drawable_height="9dp"
-        app:drawable_src="@mipmap/vip"
-        app:drawable_width="9dp" />
+        view:drawable_height="9dp"
+        view:drawable_src="@mipmap/vip"
+        view:drawable_width="9dp" />
     <com.example.dingdangpocket.RichText
+        xmlns:view="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_x="21dp"
@@ -103,9 +107,9 @@
         android:textColor="#971B1A1A"
         android:textSize="14sp"
         android:visibility="visible"
-        app:drawable_height="8dp"
-        app:drawable_src="@mipmap/email"
-        app:drawable_width="8dp" />
+        view:drawable_height="8dp"
+        view:drawable_src="@mipmap/email"
+        view:drawable_width="8dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"

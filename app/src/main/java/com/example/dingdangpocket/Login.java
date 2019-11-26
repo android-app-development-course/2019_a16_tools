@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-public class Login extends AppCompatActivity implements View.OnClickListener {
+public class Login extends BaseActivity implements View.OnClickListener {
     Button login,change,back;
     EditText account,password;
     String ac="",pw="",lang;
@@ -21,8 +21,24 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(setLayout());
         //实例化对象
-        setContentView(R.layout.login);
+        initView();
+        initData();
+    }
+
+    @Override
+    int setLayout() {
+        return R.layout.login;
+    }
+
+    @Override
+    protected void initView() {
+        setTranslucent(this);
+    }
+
+    @Override
+    protected void initData() {
         login=(Button)findViewById(R.id.login);
         back=(Button)findViewById(R.id.back);
         final EditText account=(EditText) findViewById(R.id.account);
@@ -67,6 +83,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         change.setOnClickListener(this);
         number=5;
     }
+
     public void onClick(View v){
         switch (((Button)v).getId()){
             case R.id.login:{
