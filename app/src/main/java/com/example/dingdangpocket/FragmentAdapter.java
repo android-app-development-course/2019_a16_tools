@@ -8,7 +8,6 @@ import android.util.Log;
 
 import java.util.List;
 
-import es.dmoral.toasty.Toasty;
 
 public final class FragmentAdapter extends FragmentPagerAdapter {
     private List<Fragment> mFragments;

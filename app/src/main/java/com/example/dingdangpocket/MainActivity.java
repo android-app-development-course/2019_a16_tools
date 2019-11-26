@@ -2,30 +2,27 @@ package com.example.dingdangpocket;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.widget.Toast;
 
 import com.wyt.searchbox.SearchFragment;
 import com.wyt.searchbox.custom.IOnSearchClickListener;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import es.dmoral.toasty.Toasty;
 
 
 public class MainActivity extends AppCompatActivity
@@ -118,7 +115,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void OnSearchClick(String keyword) {
                 //这里处理逻辑
-                Toasty.normal(MainActivity.this, keyword, Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, keyword, Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -1,27 +1,22 @@
 package com.example.dingdangpocket;
 
-import android.app.Dialog;
-import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.zhl.cbdialog.CBDialogBuilder;
 import com.zhy.view.flowlayout.FlowLayout;
 import com.zhy.view.flowlayout.TagAdapter;
 import com.zhy.view.flowlayout.TagFlowLayout;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
-
-import es.dmoral.toasty.Toasty;
 
 
 public class SortFragment extends Fragment {
@@ -69,7 +64,7 @@ public class SortFragment extends Fragment {
             mFlowLayout.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
                 @Override
                 public boolean onTagClick(View view, int position, com.zhy.view.flowlayout.FlowLayout parent) {
-                    Toasty.normal(getContext(), "点击,"+MainActivity.mVals[position], Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "点击,"+MainActivity.mVals[position], Toast.LENGTH_SHORT).show();
                     //view.setVisibility(View.GONE);
                     return true;
                 }
@@ -86,36 +81,35 @@ public class SortFragment extends Fragment {
             mFlowLayout.setOnTagLongClickListener(new TagFlowLayout.OnTagLongClickListener() {
                 @Override
                 public boolean onTagLongClick(View view, final int position, FlowLayout parent) {
-                    new CBDialogBuilder(getContext())
-                            .setTouchOutSideCancelable(true)
-                            .showCancelButton(true)
-                            .setTitle("提示")
-                            .setMessage("你确定将此工具添加到收藏中吗？")
-                            .setConfirmButtonText("确定")
-                            .setCancelButtonText("取消")
-                            .setDialogAnimation(CBDialogBuilder.DIALOG_ANIM_SLID_BOTTOM)
-                            .setButtonClickListener(true, new CBDialogBuilder.onDialogbtnClickListener() {
-                                @Override
-                                public void onDialogbtnClick(Context context, Dialog dialog, int whichBtn) {
-                                    switch (whichBtn) {
-                                        case BUTTON_CONFIRM:
-                                            if (MainActivity.add_collection(MainActivity.mVals[position]))
-                                            {
-                                                Toasty.normal(getContext(), R.string.add_collection_succeeded, Toast.LENGTH_SHORT).show();
-                                            }else{
-                                                Toasty.normal(getContext(), R.string.has_been_collected, Toast.LENGTH_SHORT).show();
-                                            }
-                                            break;
-                                        case BUTTON_CANCEL:
-                                            Toasty.normal(context, "取消", Toast.LENGTH_SHORT).show();
-                                            break;
-                                        default:
-                                            break;
-                                    }
-                                }
-                            })
-                            .create().show();
+                    AlertDialog.Builder builder =
+                            new AlertDialog.Builder(getContext()); // 注意：这里只能使用当前Activity的this，
 
+                    builder.setCancelable(false); // 设置点击Dialog其他区域不隐藏对话框，默认是true
+
+                    builder.setTitle("提示");
+                    builder.setMessage("你确定将此工具添加到收藏中吗？");
+
+                    // PositiveButton 右边的按钮
+                    builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            if (MainActivity.add_collection(MainActivity.mVals[position]))
+                            {
+                                Toast.makeText(getContext(), R.string.add_collection_succeeded, Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(getContext(), R.string.has_been_collected, Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
+                    // 左边的按钮
+                    builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(getContext(), "取消", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    builder.show();
                     return false;
                 }
             });

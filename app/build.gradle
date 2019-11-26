@@ -34,6 +34,4 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.github.medyo:android-about-page:1.2.5'
     implementation 'com.wenwenwen888:searchbox:1.0.0'    //搜索栏
-    implementation 'com.github.yilylong:CBDialog:v1.0.7'
-    implementation 'com.github.GrenderG:Toasty:1.4.2'
 }

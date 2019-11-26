@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import es.dmoral.toasty.Toasty;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
     Button login,change,back;
@@ -73,20 +72,20 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             case R.id.login:{
                 //没有输入账号
                 if(ac.equals("")){
-                    Toasty.normal(this,getResources().getString(R.string.ac_hint),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,getResources().getString(R.string.ac_hint),Toast.LENGTH_SHORT).show();
                 }
                 //匹配成功
                 else if(pw.equals("")){
-                    Toasty.normal(this,getResources().getString(R.string.pw_hint),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,getResources().getString(R.string.pw_hint),Toast.LENGTH_SHORT).show();
                 }
                 else if(ac.equals("10086") &&pw.equals("10086")&&number>0){
-                    Toasty.normal(this,getResources().getString(R.string.success),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,getResources().getString(R.string.success),Toast.LENGTH_SHORT).show();
                     finish();
 
                 }
                 //匹配失败
                 else if(number>0){
-                    Toasty.normal(this,getResources().getString(R.string.fail)+number,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,getResources().getString(R.string.fail)+number,Toast.LENGTH_SHORT).show();
                     number--;
                 }
                 break;

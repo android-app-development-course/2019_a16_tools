@@ -17,7 +17,6 @@ import com.zhy.view.flowlayout.TagFlowLayout;
 
 import java.util.Set;
 
-import es.dmoral.toasty.Toasty;
 
 
 public class CollectionFragment extends Fragment {
@@ -85,7 +84,7 @@ public class CollectionFragment extends Fragment {
             mFlowLayout.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
                 @Override
                 public boolean onTagClick(View view, int position, com.zhy.view.flowlayout.FlowLayout parent) {
-                    Toasty.normal(getActivity(), MainActivity.collections.get(position), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), MainActivity.collections.get(position), Toast.LENGTH_SHORT).show();
                     //view.setVisibility(View.GONE);
                     return true;
                 }
