@@ -8,6 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- 应用启动页的theme -->
+    <style name="AppTheme.StartingWindowTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/start_page</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
