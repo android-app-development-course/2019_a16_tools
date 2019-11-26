@@ -18,7 +18,6 @@ import com.zhy.view.flowlayout.TagFlowLayout;
 
 import java.util.Set;
 
-
 public class SortFragment extends Fragment {
 
     @Nullable
