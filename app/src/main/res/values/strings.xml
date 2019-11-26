@@ -38,5 +38,11 @@
     <string name="default_tools_detail">工具的详细描述</string>
     <string name="default_tools_name">工具名称</string>
 
+    <string name="gravity_left">left</string>
+    <string name="gravity_center">center</string>
+    <string name="gravity_right">right</string>
+    
+    <string name="has_been_collected">该工具已收藏！</string>
+    <string name="add_collection_succeeded">添加收藏成功！</string>
 
 </resources>

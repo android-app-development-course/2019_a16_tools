@@ -17,9 +17,7 @@ import java.util.Set;
 
 
 public class CollectionFragment extends Fragment {
-    private final String[] mVals = new String[]
-            {"打字板", "花板", "表情制作", "带壳截图", "GIF合成分解", "取色器",
-                    "图片压缩", "图片拼接", "图片转链接"};
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -37,7 +35,7 @@ public class CollectionFragment extends Fragment {
         for(int id : id_flowlayout) {
             //初始化布局和适配器,直接粘就行.
             final TagFlowLayout mFlowLayout = view.findViewById(id);
-            mFlowLayout.setAdapter(new TagAdapter<String>(mVals) {
+            mFlowLayout.setAdapter(new TagAdapter<String>(MainActivity.collections) {
 
                 @Override
                 public View getView(com.zhy.view.flowlayout.FlowLayout parent, int position, String s) {
@@ -59,7 +57,7 @@ public class CollectionFragment extends Fragment {
             mFlowLayout.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
                 @Override
                 public boolean onTagClick(View view, int position, com.zhy.view.flowlayout.FlowLayout parent) {
-                    Toast.makeText(getActivity(), mVals[position], Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), MainActivity.collections.get(position), Toast.LENGTH_SHORT).show();
                     //view.setVisibility(View.GONE);
                     return true;
                 }

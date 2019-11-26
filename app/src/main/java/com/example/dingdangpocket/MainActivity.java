@@ -20,7 +20,9 @@ import android.widget.Toast;
 import com.wyt.searchbox.SearchFragment;
 import com.wyt.searchbox.custom.IOnSearchClickListener;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -29,9 +31,12 @@ public class MainActivity extends AppCompatActivity
 
     BottomNavigationView bnView;
     ViewPager viewPager;
-    //修改者：Guo & Chen
-
     SearchFragment searchFragment;
+    public static final String[] mVals = new String[]
+            {"打字板", "画板", "表情制作", "带壳截图", "GIF合成分解", "取色器",
+                    "图片压缩", "图片拼接", "图片转链接"};
+    public static ArrayList<String> collections =
+            new ArrayList(Arrays.asList("打字板", "花板"));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +118,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+
     }
 
 
@@ -185,5 +191,15 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);*/
 
         return true;
+    }
+
+    public static boolean add_collection(String tool_name){
+        if (collections.contains(tool_name))
+        {
+            return false;//已收藏，返回false.
+        }else{
+            collections.add(tool_name);
+            return true;//收藏成功，返回true.
+        }
     }
 }
