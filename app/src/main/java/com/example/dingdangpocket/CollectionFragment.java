@@ -4,9 +4,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,9 +17,13 @@ import com.zhy.view.flowlayout.TagFlowLayout;
 
 import java.util.Set;
 
+import es.dmoral.toasty.Toasty;
+
 
 public class CollectionFragment extends Fragment {
 
+    private boolean isGetData = false;
+    private int count = 0;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -26,7 +32,29 @@ public class CollectionFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
+        count++;
+        Log.i("CollectionFragment",String.valueOf(count));
+        //   进入当前Fragment
+        if (enter && !isGetData) {
+            isGetData = true;
+            //   这里可以做网络请求或者需要的数据刷新操作
+
+        } else {
+            isGetData = false;
+        }
+        return super.onCreateAnimation(transit, enter, nextAnim);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        isGetData = false;
+    }
+
     public void init(View view){
+
         int id_flowlayout[] = {
                 R.id.id_flowlayout_collection,
         };
@@ -57,7 +85,7 @@ public class CollectionFragment extends Fragment {
             mFlowLayout.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
                 @Override
                 public boolean onTagClick(View view, int position, com.zhy.view.flowlayout.FlowLayout parent) {
-                    Toast.makeText(getActivity(), MainActivity.collections.get(position), Toast.LENGTH_SHORT).show();
+                    Toasty.normal(getActivity(), MainActivity.collections.get(position), Toast.LENGTH_SHORT).show();
                     //view.setVisibility(View.GONE);
                     return true;
                 }
@@ -71,6 +99,8 @@ public class CollectionFragment extends Fragment {
                 }
             });
         }
+
+
 
     }
 }

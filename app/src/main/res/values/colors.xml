@@ -3,5 +3,5 @@
     <color name="colorPrimary">#47B0E6</color>
     <color name="colorPrimaryDark">#47B0E6</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="textViewBackground">#E0E0E0</color>
+    <color name="textViewBackground">#F0F0F0</color>
 </resources>

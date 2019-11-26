@@ -25,6 +25,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import es.dmoral.toasty.Toasty;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity
             {"打字板", "画板", "表情制作", "带壳截图", "GIF合成分解", "取色器",
                     "图片压缩", "图片拼接", "图片转链接"};
     public static ArrayList<String> collections =
-            new ArrayList(Arrays.asList("打字板", "花板"));
+            new ArrayList(Arrays.asList("打字板", "画板"));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,7 @@ public class MainActivity extends AppCompatActivity
 
         FragmentAdapter adapter = new FragmentAdapter(fragments, getSupportFragmentManager());
         viewPager.setAdapter(adapter);
+
 
         //BottomNavigationView 点击事件监听
         bnView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -115,7 +118,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void OnSearchClick(String keyword) {
                 //这里处理逻辑
-                Toast.makeText(MainActivity.this, keyword, Toast.LENGTH_SHORT).show();
+                Toasty.normal(MainActivity.this, keyword, Toast.LENGTH_SHORT).show();
             }
         });
 

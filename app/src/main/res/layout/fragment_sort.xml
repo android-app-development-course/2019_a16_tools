@@ -25,7 +25,8 @@
 
             <TextView
                 style="@style/TextViewSortName"
-                android:text="@string/sort_name_1"
+                android:text="@string/daily_tools"
+                android:drawableStart="@drawable/ic_daily"
                 />
             <com.zhy.view.flowlayout.TagFlowLayout
                 android:id="@+id/id_flowlayout_1"
@@ -37,7 +38,8 @@
                 style="@style/ViewLine"/>
             <TextView
                 style="@style/TextViewSortName"
-                android:text="@string/sort_name_2"
+                android:text="@string/photo_tools"
+                android:drawableLeft="@drawable/ic_photo"
                 />
             <com.zhy.view.flowlayout.TagFlowLayout
                 android:id="@+id/id_flowlayout_2"
@@ -48,7 +50,8 @@
                 style="@style/ViewLine"/>
             <TextView
                 style="@style/TextViewSortName"
-                android:text="@string/sort_name_3"
+                android:text="@string/query_tools"
+                android:drawableLeft="@drawable/ic_query"
                 />
             <com.zhy.view.flowlayout.TagFlowLayout
                 android:id="@+id/id_flowlayout_3"
@@ -60,8 +63,8 @@
                 style="@style/ViewLine"/>
             <TextView
                 style="@style/TextViewSortName"
-                android:text="@string/sort_name_4"
-                />
+                android:text="@string/equipment_tools"
+                android:drawableLeft="@drawable/ic_equipment"/>
             <com.zhy.view.flowlayout.TagFlowLayout
                 android:id="@+id/id_flowlayout_4"
                 style="@style/FlowLayout"
@@ -72,8 +75,8 @@
                 style="@style/ViewLine"/>
             <TextView
                 style="@style/TextViewSortName"
-                android:text="@string/sort_name_5"
-                />
+                android:text="@string/auxiliary_tools"
+                android:drawableLeft="@drawable/ic_auxiliary"/>
 
             <com.zhy.view.flowlayout.TagFlowLayout
                 android:id="@+id/id_flowlayout_5"
@@ -84,8 +87,8 @@
                 style="@style/ViewLine"/>
             <TextView
                 style="@style/TextViewSortName"
-                android:text="@string/sort_name_6"
-
+                android:text="@string/other_tools"
+                android:drawableLeft="@drawable/ic_others"
                 />
             <com.zhy.view.flowlayout.TagFlowLayout
                 android:id="@+id/id_flowlayout_6"

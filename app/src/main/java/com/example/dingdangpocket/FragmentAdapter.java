@@ -1,10 +1,14 @@
 package com.example.dingdangpocket;
 
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.util.Log;
 
 import java.util.List;
+
+import es.dmoral.toasty.Toasty;
 
 public final class FragmentAdapter extends FragmentPagerAdapter {
     private List<Fragment> mFragments;
@@ -23,4 +27,5 @@ public final class FragmentAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return mFragments.size();
     }
+
 }
