@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#47B0E6</color>
     <color name="colorAccent">#D81B60</color>
     <color name="textViewBackground">#F0F0F0</color>
+    <color name="textViewBackgroundPress">#808080</color>
 </resources>
