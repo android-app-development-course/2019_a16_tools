@@ -68,7 +68,7 @@
         <Button
             android:id="@+id/change"
             style="@style/buttonStyle"
-            android:text="@string/change"
+            android:text="@string/register"
             android:layout_alignLeft="@id/login"
             android:layout_marginLeft="20dp"
             android:layout_alignParentBottom="true"

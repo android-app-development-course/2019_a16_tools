@@ -183,9 +183,6 @@ public class MainActivity extends AppCompatActivity
         }else if(id==R.id.logout){
             startActivity(new Intent(this,Login.class));
         }
-        else if(id == R.id.nav_exit){
-            finish();
-        }
 
         // 注释掉之后，关闭activity之后左侧菜单还显示
         /*DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -12,13 +12,11 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.widget.ImageView;
 
-/**
+/*
  * 自定义的圆角矩形ImageView，可以直接当组件在布局中使用。
- * @author caizhiming
- *
  */
+
 public class XCRoundRectImageView extends android.support.v7.widget.AppCompatImageView{
 
     private Paint paint;
@@ -62,7 +60,6 @@ public class XCRoundRectImageView extends android.support.v7.widget.AppCompatIma
      * @param bitmap
      * @param roundPx,一般设置成14
      * @return Bitmap
-     * @author caizhiming
      */
     private Bitmap getRoundBitmap(Bitmap bitmap, int roundPx) {
         Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),

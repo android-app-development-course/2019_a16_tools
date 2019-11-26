@@ -10,8 +10,8 @@
 
     <AbsoluteLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:background="#A8BFC0">
+        android:layout_height="250dp"
+        android:background="@color/colorPrimary">
 
         <Button
             android:id="@+id/back"
@@ -26,14 +26,14 @@
             android:layout_height="70dp"
             android:layout_marginTop="250dp"
             android:layout_x="20dp"
-            android:layout_y="260dp"
+            android:layout_y="210dp"
             android:src="@drawable/daxiong" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_x="100dp"
-            android:layout_y="260dp"
+            android:layout_y="210dp"
             android:text="野比大雄"
             android:textColor="#ffffff"
             android:textSize="18sp" />
@@ -41,12 +41,97 @@
 
     </AbsoluteLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clipChildren="false">
+        android:textColor="#971B1A1A"
+        android:textSize="14sp"
+        android:layout_x="100dp"
+        android:layout_y="260dp"
+        android:text="男   本科在读"/>
 
-    </LinearLayout>
+    <com.example.dingdangpocket.RichText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="21dp"
+        android:layout_y="325dp"
+        android:drawablePadding="9dp"
+        android:gravity="center"
+        android:text="华南师范大学   广东-广州-天河"
+        android:textColor="#971B1A1A"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:drawable_height="9dp"
+        app:drawable_src="@mipmap/region"
+        app:drawable_width="9dp" />
+    <com.example.dingdangpocket.RichText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="20dp"
+        android:layout_y="365dp"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:text="@string/sign"
+        android:textColor="#971B1A1A"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:drawable_height="7dp"
+        app:drawable_src="@drawable/edit"
+        app:drawable_width="7dp" />
+    <com.example.dingdangpocket.RichText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="20dp"
+        android:layout_y="405dp"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="九阳神功第九重"
+        android:textColor="#971B1A1A"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:drawable_height="9dp"
+        app:drawable_src="@mipmap/vip"
+        app:drawable_width="9dp" />
+    <com.example.dingdangpocket.RichText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="21dp"
+        android:layout_y="445dp"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="1024@m.scnu.edu.cn"
+        android:textColor="#971B1A1A"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:drawable_height="8dp"
+        app:drawable_src="@mipmap/email"
+        app:drawable_width="8dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_y="650dp">
+
+        <Button
+            android:id="@+id/vip"
+            style="@style/Userpage_Button"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
+            android:text="升级会员" />
+
+        <Button
+            android:id="@+id/edit_message2"
+            style="@style/Userpage_Button"
+            android:layout_centerHorizontal="true"
+            android:text="我的二维码" />
+
+        <Button
+            android:id="@+id/edit_message"
+            style="@style/Userpage_Button"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:text="编辑资料" />
+    </RelativeLayout>
 
 
 </AbsoluteLayout>

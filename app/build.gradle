@@ -15,13 +15,14 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        sourceSets{}
     }
 }
 allprojects {
     repositories {
 
         maven { url 'https://jitpack.io' }
-    }
+}
 }
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
