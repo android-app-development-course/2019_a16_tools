@@ -25,9 +25,9 @@
 
             <TextView
                 style="@style/TextViewSortName"
-                android:text="@string/daily_tools"
+
                 android:drawableStart="@drawable/ic_daily"
-                />
+                android:text="@string/daily_tools" />
             <com.zhy.view.flowlayout.TagFlowLayout
                 android:id="@+id/id_flowlayout_1"
                 style="@style/FlowLayout"

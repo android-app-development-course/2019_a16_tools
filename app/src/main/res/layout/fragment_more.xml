@@ -17,63 +17,91 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical">
 
             <TextView
                 style="@style/TextViewSortName"
                 android:text="@string/update_log"
-                android:layout_marginBottom="0sp"/>
+                android:layout_marginBottom="10sp"
+                android:drawableLeft="@drawable/ic_log"/>
             <TextView
                 style="@style/TextDetail"
                 android:text="@string/default_log_detail"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
             <View
                 style="@style/ViewLine"/>
             <TextView
                 style="@style/TextViewSortName"
                 android:text="@string/recommend_tools"
-                android:layout_marginBottom="0sp"/>
+                android:layout_marginBottom="0sp"
+                android:drawableLeft="@drawable/ic_recommend"/>
+
 
             <TextView
+                android:id="@+id/tv_tool_name1"
                 style="@style/TextViewSortName"
-                android:text="@string/default_tools_name"
-                android:layout_marginBottom="0sp"
-                android:textStyle="normal"/>
+                android:text="表情制作"
+                android:layout_marginBottom="10sp"
+                android:textStyle="normal"
+                android:drawableLeft="@drawable/ic_emoji"
+                />
             <TextView
+                android:id="@+id/tv_tool_detail1"
                 style="@style/TextDetail"
-                android:text="@string/default_tools_detail"/>
+                android:text="你还愁表情包不够用？表情制作工具可以帮你成为斗图王者"/>
             <View
                 style="@style/ViewLine.Small"/>
 
             <TextView
+                android:id="@+id/tv_tool_name2"
                 style="@style/TextViewSortName"
-                android:text="@string/default_tools_name"
-                android:layout_marginBottom="0sp"
-                android:textStyle="normal"/>
+                android:text="图片拼接"
+                android:layout_marginBottom="10sp"
+                android:textStyle="normal"
+                android:drawableLeft="@drawable/ic_split_joint"/>
             <TextView
+                android:id="@+id/tv_tool_detail2"
                 style="@style/TextDetail"
-                android:text="@string/default_tools_detail"/>
+                android:text="支持拼接影视台词的图片拼接工具"/>
             <View
                 style="@style/ViewLine.Small"/>
 
             <TextView
+                android:id="@+id/tv_tool_name3"
                 style="@style/TextViewSortName"
-                android:text="@string/default_tools_name"
-                android:layout_marginBottom="0sp"
-                android:textStyle="normal"/>
+                android:text="GIF合成分解"
+                android:layout_marginBottom="10sp"
+                android:textStyle="normal"
+                android:drawableLeft="@drawable/ic_gif"/>
             <TextView
+                android:id="@+id/tv_tool_detail3"
                 style="@style/TextDetail"
-                android:text="@string/default_tools_detail"/>
+                android:text="支持多个图片合成GIF,以及GIF分解成多个图片"/>
+            <View
+                style="@style/ViewLine.Small"/>
 
+            <TextView
+                android:id="@+id/tv_tool_name4"
+                style="@style/TextViewSortName"
+                android:text="图片压缩"
+                android:layout_marginBottom="10sp"
+                android:textStyle="normal"
+                android:drawableLeft="@drawable/ic_compress"/>
+            <TextView
+                android:id="@+id/tv_tool_detail4"
+                style="@style/TextDetail"
+                android:text="无损压缩图片"/>
 
-        </LinearLayout>
+            <com.example.dingdangpocket.NestedListView
+                android:id="@+id/lv_recommend_tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@drawable/textview_border"
+                android:dividerHeight="2sp">
+
+            </com.example.dingdangpocket.NestedListView>
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
