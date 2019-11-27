@@ -1,19 +1,15 @@
 package com.example.dingdangpocket;
 
 
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
-import android.os.Build;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * 启动页面的设计
@@ -21,19 +17,17 @@ import android.widget.Toast;
 
 public class SplashActivity extends BaseActivity {
 
-    //显示广告页面的时间，5 秒
-    long showTime=5;
+
+    //显示广告页面的时间，7 秒
+    long showTime=7;
     TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
-        //延迟5000ms跳转到主页面
+        setContentView(setLayout());
         initView();
-        initData();
     }
-
     @Override
     int setLayout() {
         return R.layout.activity_splash;
@@ -50,8 +44,8 @@ public class SplashActivity extends BaseActivity {
         handler.postDelayed(myRunnable, showTime*1000);
         handler.sendEmptyMessage(111);//給Handler对象发送信息
     }
-
     //创建Handler对象
+    @SuppressLint("HandlerLeak")
     Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -74,12 +68,12 @@ public class SplashActivity extends BaseActivity {
     Runnable myRunnable=new Runnable() {
         @Override
         public void run() {
-            jundToMainActivity();
+            goToMainActivity();
         }
     };
 
     //跳转到主页的方法，并关闭自身页面
-    public void jundToMainActivity(){
+    public void goToMainActivity(){
         Intent intent = new Intent(SplashActivity.this,
                 MainActivity.class);
         startActivity(intent);
@@ -90,8 +84,7 @@ public class SplashActivity extends BaseActivity {
     public void closeSplash(View view){
         Log.e("TAG","closeSplash");
         handler.removeCallbacks(myRunnable);//移出Runnable对象
-        jundToMainActivity();
-
+        goToMainActivity();
     }
 
     //回退键的监听方法，
