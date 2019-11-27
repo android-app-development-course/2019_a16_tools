@@ -19,7 +19,7 @@ public class SplashActivity extends BaseActivity {
 
 
     //显示广告页面的时间，7 秒
-    long showTime=7;
+    long showTime=3;
     TextView textView;
 
     @Override

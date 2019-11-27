@@ -19,7 +19,7 @@
     <string name="auxiliary_tools">辅助工具</string>
     <string name="other_tools">其它工具</string>
 
-    <string name="account">账户</string>
+    <string name="account">叮当号/邮箱</string>
     <string name="password">密码</string>
     <string name="ac_hint">请输入账户</string>
     <string name="pw_hint">请输入密码</string>

@@ -61,18 +61,18 @@
             style="@style/buttonStyle"
             android:text="@string/forgot"
             android:layout_alignParentBottom="true"
-            android:layout_alignRight="@id/login"
-            android:layout_marginRight="20dp"
-            android:gravity="left"/>
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="60dp"
+            android:gravity="center"/>
 
         <Button
             android:id="@+id/change"
             style="@style/buttonStyle"
             android:text="@string/register"
-            android:layout_alignLeft="@id/login"
-            android:layout_marginLeft="20dp"
             android:layout_alignParentBottom="true"
-            android:gravity="right"/>
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="60dp"
+            android:gravity="center"/>
 
     </RelativeLayout>
 
