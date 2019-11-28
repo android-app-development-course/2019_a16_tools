@@ -4,11 +4,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,11 +16,10 @@ import com.zhy.view.flowlayout.TagFlowLayout;
 import java.util.Set;
 
 
-
 public class CollectionFragment extends Fragment {
-
-    private boolean isGetData = false;
-    private int count = 0;
+    private String[] mVals = new String[]
+            {"打字板", "花板", "表情制作", "带壳截图", "GIF合成分解", "取色器",
+                    "图片压缩", "图片拼接", "图片转链接"};
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -31,29 +28,7 @@ public class CollectionFragment extends Fragment {
         return view;
     }
 
-    @Override
-    public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
-        count++;
-        Log.i("CollectionFragment",String.valueOf(count));
-        //   进入当前Fragment
-        if (enter && !isGetData) {
-            isGetData = true;
-            //   这里可以做网络请求或者需要的数据刷新操作
-
-        } else {
-            isGetData = false;
-        }
-        return super.onCreateAnimation(transit, enter, nextAnim);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        isGetData = false;
-    }
-
     public void init(View view){
-
         int id_flowlayout[] = {
                 R.id.id_flowlayout_collection,
         };
@@ -62,7 +37,7 @@ public class CollectionFragment extends Fragment {
         for(int id : id_flowlayout) {
             //初始化布局和适配器,直接粘就行.
             final TagFlowLayout mFlowLayout = view.findViewById(id);
-            mFlowLayout.setAdapter(new TagAdapter<String>(MainActivity.collections) {
+            mFlowLayout.setAdapter(new TagAdapter<String>(mVals) {
 
                 @Override
                 public View getView(com.zhy.view.flowlayout.FlowLayout parent, int position, String s) {
@@ -84,7 +59,7 @@ public class CollectionFragment extends Fragment {
             mFlowLayout.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
                 @Override
                 public boolean onTagClick(View view, int position, com.zhy.view.flowlayout.FlowLayout parent) {
-                    Toast.makeText(getActivity(), MainActivity.collections.get(position), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), mVals[position], Toast.LENGTH_SHORT).show();
                     //view.setVisibility(View.GONE);
                     return true;
                 }
@@ -98,8 +73,6 @@ public class CollectionFragment extends Fragment {
                 }
             });
         }
-
-
 
     }
 }

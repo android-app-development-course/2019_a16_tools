@@ -49,7 +49,7 @@
     <style name="ViewLine">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">5sp</item>
-        <item name="android:background">@color/textViewBackground</item>
+        <item name="android:background">@color/textViewBackgroundNormal</item>
     </style>
 
     <style name="ViewLine.Small" parent="ViewLine">

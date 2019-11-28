@@ -1,25 +1,29 @@
 package com.example.dingdangpocket;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.zhy.view.flowlayout.FlowLayout;
 import com.zhy.view.flowlayout.TagAdapter;
 import com.zhy.view.flowlayout.TagFlowLayout;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
-public class SortFragment extends Fragment {
+import es.dmoral.toasty.Toasty;
 
+
+public class SortFragment extends Fragment {
+    private final String[] mVals = new String[]
+            {"打字板", "花板", "表情制作", "带壳截图", "GIF合成分解", "取色器",
+                    "图片压缩", "图片拼接", "图片转链接"};
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -41,11 +45,11 @@ public class SortFragment extends Fragment {
         for(int id : id_flowlayout) {
             //初始化布局和适配器,直接粘就行.
             final TagFlowLayout mFlowLayout = view.findViewById(id);
-            mFlowLayout.setAdapter(new TagAdapter<String>(MainActivity.mVals) {
+            mFlowLayout.setAdapter(new TagAdapter<String>(mVals) {
 
                 @Override
                 public View getView(com.zhy.view.flowlayout.FlowLayout parent, int position, String s) {
-//                将tv.xml文件填充到标签内.
+//                将flowlayout_item.xml文件填充到标签内.
                     TextView tv = (TextView) mInflater.inflate(R.layout.flowlayout_item,
                             mFlowLayout, false);
 //               为标签设置对应的内容
@@ -63,7 +67,7 @@ public class SortFragment extends Fragment {
             mFlowLayout.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
                 @Override
                 public boolean onTagClick(View view, int position, com.zhy.view.flowlayout.FlowLayout parent) {
-                    Toast.makeText(getContext(), "点击,"+MainActivity.mVals[position], Toast.LENGTH_SHORT).show();
+                    Toasty.normal(getActivity(), mVals[position], Toast.LENGTH_SHORT).show();
                     //view.setVisibility(View.GONE);
                     return true;
                 }
@@ -76,39 +80,12 @@ public class SortFragment extends Fragment {
 
                 }
             });
-            //为长按标签设置长按事件.
-            mFlowLayout.setOnTagLongClickListener(new TagFlowLayout.OnTagLongClickListener() {
+
+            mFlowLayout.setOnLongClickListener(new TagFlowLayout.OnLongClickListener(){
+                //长按收藏
                 @Override
-                public boolean onTagLongClick(View view, final int position, FlowLayout parent) {
-                    AlertDialog.Builder builder =
-                            new AlertDialog.Builder(getContext()); // 注意：这里只能使用当前Activity的this，
+                public boolean onLongClick(View view) {
 
-                    builder.setCancelable(false); // 设置点击Dialog其他区域不隐藏对话框，默认是true
-
-                    builder.setTitle("提示");
-                    builder.setMessage("你确定将此工具添加到收藏中吗？");
-
-                    // PositiveButton 右边的按钮
-                    builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            if (MainActivity.add_collection(MainActivity.mVals[position]))
-                            {
-                                Toast.makeText(getContext(), R.string.add_collection_succeeded, Toast.LENGTH_SHORT).show();
-                            }else{
-                                Toast.makeText(getContext(), R.string.has_been_collected, Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-
-                    // 左边的按钮
-                    builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(getContext(), "取消", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                    builder.show();
                     return false;
                 }
             });
@@ -117,4 +94,3 @@ public class SortFragment extends Fragment {
     }
 
 }
-
