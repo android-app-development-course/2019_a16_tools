@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RandomNumberActivity"></activity>
+        <activity android:name=".RubbishClassificationActivity"></activity>
+        <activity android:name=".RandomNumberActivity" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/AppTheme.StartingWindowTheme">
@@ -27,7 +28,7 @@
         <activity android:name=".Login" />
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
     </application>
 
 </manifest>

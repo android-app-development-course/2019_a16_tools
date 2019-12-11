@@ -72,7 +72,11 @@ public class SortFragment extends Fragment {
                             break;
                         case "随机数生成器":
                             startActivity(new Intent(getActivity(), RandomNumberActivity.class));
-                            default:break;
+                            break;
+                        case "垃圾分类":
+                            startActivity(new Intent(getActivity(), RubbishClassificationActivity.class));
+                            break;
+                        default:break;
                     }
                     //view.setVisibility(View.GONE);
                     return true;
