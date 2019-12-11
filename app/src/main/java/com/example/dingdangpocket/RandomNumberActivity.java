@@ -24,11 +24,15 @@ public class RandomNumberActivity extends AppCompatActivity
             case R.id.random_generate:
                 EditText et1 = findViewById(R.id.edittext_random_min);
                 EditText et2 = findViewById(R.id.edittext_random_max);
+                TextView tv = findViewById(R.id.textview_random_number);
                 int min = Integer.valueOf(et1.getText().toString());
                 int max = Integer.valueOf(et2.getText().toString());
-                if(min >= max) return;
+                if(min > max) return;
+                else if(min == max) {
+                    tv.setText(Integer.toString(min));
+                    return;
+                }
                 int result = (new Random()).nextInt(max - min) + min;
-                TextView tv = findViewById(R.id.textview_random_number);
                 tv.setText(Integer.toString(result));
                 break;
 
