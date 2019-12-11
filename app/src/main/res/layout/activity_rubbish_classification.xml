@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RubbishClassificationActivity">
+    <EditText
+        style="@style/editviewStyle"
+        android:id="@+id/et_rubbish_query"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="10sp"
+        android:hint="@string/rubbish_query_hint"
+        android:drawableEnd="@drawable/ic_search"
+        />
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</android.support.constraint.ConstraintLayout>
+    </ListView>
+
+</LinearLayout>

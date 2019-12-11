@@ -73,7 +73,7 @@ public class SortFragment extends Fragment {
                         case "随机数生成器":
                             startActivity(new Intent(getActivity(), RandomNumberActivity.class));
                             break;
-                        case "垃圾分类":
+                        case "垃圾分类查询":
                             startActivity(new Intent(getActivity(), RubbishClassificationActivity.class));
                             break;
                         default:break;

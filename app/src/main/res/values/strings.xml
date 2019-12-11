@@ -48,4 +48,5 @@
     <string name="has_been_collected">该工具已收藏！</string>
     <string name="add_collection_succeeded">添加收藏成功！</string>
 
+    <string name="rubbish_query_hint">请输入垃圾名称，如湿纸巾</string>
 </resources>
