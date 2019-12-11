@@ -2,26 +2,27 @@ package com.example.dingdangpocket;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.widget.Toast;
 
 import com.wyt.searchbox.SearchFragment;
 import com.wyt.searchbox.custom.IOnSearchClickListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
 
 
 public class MainActivity extends AppCompatActivity
@@ -29,14 +30,17 @@ public class MainActivity extends AppCompatActivity
 
     BottomNavigationView bnView;
     ViewPager viewPager;
-    public  String[] collec = new String[]
-            {"打字板", "花板", "表情制作", "带壳截图", "GIF合成分解", "取色器",
-                    "图片压缩", "图片拼接", "图片转链接"};
     SearchFragment searchFragment;
+    public static final String[] mVals = new String[]
+            {"打字板", "画板", "表情制作", "带壳截图", "GIF合成分解", "取色器",
+                    "图片压缩", "图片拼接", "图片转链接", "随机数生成器"};
+    public static ArrayList<String> collections =
+            new ArrayList(Arrays.asList("打字板", "画板"));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.AppTheme_NoActionBar);//恢复原有的样式
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -62,6 +66,7 @@ public class MainActivity extends AppCompatActivity
 
         FragmentAdapter adapter = new FragmentAdapter(fragments, getSupportFragmentManager());
         viewPager.setAdapter(adapter);
+
 
         //BottomNavigationView 点击事件监听
         bnView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -113,6 +118,7 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(MainActivity.this, keyword, Toast.LENGTH_SHORT).show();
             }
         });
+
 
     }
 
@@ -177,14 +183,21 @@ public class MainActivity extends AppCompatActivity
         }else if(id==R.id.logout){
             startActivity(new Intent(this,Login.class));
         }
-        else if(id == R.id.nav_exit){
-            finish();
-        }
 
         // 注释掉之后，关闭activity之后左侧菜单还显示
         /*DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);*/
 
         return true;
+    }
+
+    public static boolean add_collection(String tool_name){
+        if (collections.contains(tool_name))
+        {
+            return false;//已收藏，返回false.
+        }else{
+            collections.add(tool_name);
+            return true;//收藏成功，返回true.
+        }
     }
 }
