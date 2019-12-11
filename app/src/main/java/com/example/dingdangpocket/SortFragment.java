@@ -1,6 +1,7 @@
 package com.example.dingdangpocket;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -63,7 +64,16 @@ public class SortFragment extends Fragment {
             mFlowLayout.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
                 @Override
                 public boolean onTagClick(View view, int position, com.zhy.view.flowlayout.FlowLayout parent) {
-                    Toast.makeText(getContext(), "点击,"+MainActivity.mVals[position], Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getContext(), "点击,"+MainActivity.mVals[position], Toast.LENGTH_SHORT).show();
+                    switch (MainActivity.mVals[position])
+                    {
+                        case "打字板":
+                            Toast.makeText(getContext(), "点击,"+MainActivity.mVals[position], Toast.LENGTH_SHORT).show();
+                            break;
+                        case "随机数生成器":
+                            startActivity(new Intent(getActivity(), RandomNumberActivity.class));
+                            default:break;
+                    }
                     //view.setVisibility(View.GONE);
                     return true;
                 }
