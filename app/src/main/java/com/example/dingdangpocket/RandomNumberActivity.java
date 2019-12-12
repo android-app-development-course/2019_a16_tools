@@ -14,6 +14,7 @@ public class RandomNumberActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_random_number);
         findViewById(R.id.random_generate).setOnClickListener(this);
     }
@@ -25,8 +26,15 @@ public class RandomNumberActivity extends AppCompatActivity
                 EditText et1 = findViewById(R.id.edittext_random_min);
                 EditText et2 = findViewById(R.id.edittext_random_max);
                 TextView tv = findViewById(R.id.textview_random_number);
-                int min = Integer.valueOf(et1.getText().toString());
-                int max = Integer.valueOf(et2.getText().toString());
+
+                String str1 = et1.getText().toString();
+                String str2 = et2.getText().toString();
+
+                if(str1.isEmpty() || str2.isEmpty())
+                    return;
+
+                int min = Integer.valueOf(str1);
+                int max = Integer.valueOf(str2);
                 if(min > max) return;
                 else if(min == max) {
                     tv.setText(Integer.toString(min));

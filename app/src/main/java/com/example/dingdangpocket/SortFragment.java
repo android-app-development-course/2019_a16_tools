@@ -76,6 +76,9 @@ public class SortFragment extends Fragment {
                         case "垃圾分类查询":
                             startActivity(new Intent(getActivity(), RubbishClassificationActivity.class));
                             break;
+                        case "分贝检测":
+                            startActivity(new Intent(getActivity(), SoundActivity.class));
+                            break;
                         default:break;
                     }
                     //view.setVisibility(View.GONE);
