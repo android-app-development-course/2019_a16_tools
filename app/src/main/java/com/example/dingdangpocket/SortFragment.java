@@ -79,6 +79,9 @@ public class SortFragment extends Fragment {
                         case "分贝检测":
                             startActivity(new Intent(getActivity(), SoundActivity.class));
                             break;
+                        case "取色器":
+                            startActivity(new Intent(getActivity(), ColorPickerActivity.class));
+                            break;
                         default:break;
                     }
                     //view.setVisibility(View.GONE);

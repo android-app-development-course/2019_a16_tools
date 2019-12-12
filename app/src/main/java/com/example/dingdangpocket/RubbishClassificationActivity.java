@@ -9,9 +9,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-
 import java.io.IOException;
 
 import static android.support.constraint.Constraints.TAG;

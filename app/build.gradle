@@ -38,5 +38,5 @@ dependencies {
 //    implementation 'com.github.GrenderG:Toasty:1.4.2'
 //    implementation 'com.github.yilylong:CBDialog:v1.0.7'
     implementation 'com.squareup.okhttp3:okhttp:4.2.2'//https://github.com/square/okhttp
-    implementation 'com.alibaba:fastjson:1.2.56'
+    implementation 'com.github.shixiuwen:colorpicker:v1.0.3'    //取色器 
 }
