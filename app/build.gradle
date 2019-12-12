@@ -37,5 +37,6 @@ dependencies {
     implementation 'com.wenwenwen888:searchbox:1.0.0'    //搜索栏
 //    implementation 'com.github.GrenderG:Toasty:1.4.2'
 //    implementation 'com.github.yilylong:CBDialog:v1.0.7'
-    implementation("com.squareup.okhttp3:okhttp:4.2.2")//https://github.com/square/okhttp
+    implementation 'com.squareup.okhttp3:okhttp:4.2.2'//https://github.com/square/okhttp
+    implementation 'com.alibaba:fastjson:1.2.56'
 }

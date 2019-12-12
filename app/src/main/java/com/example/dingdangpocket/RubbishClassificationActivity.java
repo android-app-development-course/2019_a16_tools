@@ -9,10 +9,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 
+import java.io.IOException;
+
+import static android.support.constraint.Constraints.TAG;
 import static com.example.dingdangpocket.HttpUtils.GetJSON;
 
 public class RubbishClassificationActivity extends AppCompatActivity implements View.OnTouchListener {
@@ -53,7 +55,7 @@ public class RubbishClassificationActivity extends AppCompatActivity implements 
                     //点击了垃圾分类查询右边的搜索图标
                     String rubbishName = et_rubbishName.getText().toString();
                     String rubbishClassification = "";
-//                    rubbishClassification = rubbishQuery(rubbishName);
+                    rubbishClassification = rubbishQuery(rubbishName);
                     Toast.makeText(this, rubbishName+" , "+rubbishClassification, Toast.LENGTH_LONG).show();
                 }
                 break;
@@ -67,11 +69,22 @@ public class RubbishClassificationActivity extends AppCompatActivity implements 
         //例子：https://quark.sm.cn/api/rest?method=sc.operation_sorting_category&app_chain_name=waste_classify&q=湿纸巾
         //返回JSON：{"error":0,"data":{"waste_type":"干垃圾或其他垃圾","category":1}}
         String url = "https://quark.sm.cn/api/rest?method=sc.operation_sorting_category&app_chain_name=waste_classify&q=";
-//        String api1 = url + name;
+//        String api1 = url + name;+
 //        String api2 = "https://quark.sm.cn/api/quark_sug?q=罐头是什么垃圾";
-        String result = GetJSON(url+rubbishName);
+
+        String result = "";
         String rubbishClassification = "";
         try {
+            result = GetJSON(url+rubbishName);
+            String []results = result.split("\"");
+            rubbishClassification = results[results.length-4];
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        /*try {
             JSONArray obj = new JSONArray(result);
             for(int i=0;i<obj.length();i++){
                 JSONObject jsonobj = (JSONObject)obj.get(i);
@@ -82,7 +95,15 @@ public class RubbishClassificationActivity extends AppCompatActivity implements 
             }
         } catch (JSONException e) {
             Log.i("JSONException",e.toString());
-        }
+        }*/
+
+//        JSONObject jsonobj = JSON.parseObject(result);
+//        JSONObject jsonobj2 = jsonobj.getJSONObject("data");
+//        if(jsonobj2 != null)
+//            rubbishClassification = jsonobj2.getString("waste_type");
+
+
+        //Log.d(TAG, "rubbishClassification: " + rubbishClassification);
         return rubbishClassification;
     }
 }
