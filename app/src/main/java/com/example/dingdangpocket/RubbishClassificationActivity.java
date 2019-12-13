@@ -1,20 +1,42 @@
 package com.example.dingdangpocket;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.io.IOException;
-
 import static com.example.dingdangpocket.HttpUtils.GetJSON;
 
 public class RubbishClassificationActivity extends AppCompatActivity implements View.OnTouchListener {
 
     private EditText et_rubbishName;
+    final String api_waste_classify = "https://quark.sm.cn/api/rest?method=sc.operation_sorting_category&app_chain_name=waste_classify&q=";
+    private static final int OK = 1;
+    private static final int NO = 0;
+    Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what){
+                //加载网络成功进行UI的更新,处理得到的图片资源
+                case OK:
+                    String  jsonStr= (String)msg.obj;
+                    String []results = jsonStr.split("\"");
+                    Toast.makeText(RubbishClassificationActivity.this,results[results.length-4], Toast.LENGTH_LONG).show();
+                    break;
+                //当加载网络失败执行的逻辑代码
+                case NO:
+                    Toast.makeText(RubbishClassificationActivity.this, "网络出现了问题", Toast.LENGTH_SHORT).show();
+                    break;
+            }
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,9 +71,10 @@ public class RubbishClassificationActivity extends AppCompatActivity implements 
                 if(touch_et(view, motionEvent)){
                     //点击了垃圾分类查询右边的搜索图标
                     String rubbishName = et_rubbishName.getText().toString();
-                    String rubbishClassification = "";
-                    rubbishClassification = rubbishQuery(rubbishName);
-                    Toast.makeText(this, rubbishName+" , "+rubbishClassification, Toast.LENGTH_LONG).show();
+                    GetJSON(api_waste_classify+rubbishName,
+                            handler,OK,NO);
+//                    rubbishClassification = rubbishQuery(rubbishName);
+//                    Toast.makeText(this, rubbishName+" , "+rubbishClassification, Toast.LENGTH_LONG).show();
                 }
                 break;
             default:break;
@@ -60,26 +83,4 @@ public class RubbishClassificationActivity extends AppCompatActivity implements 
         return false;
     }
 
-    public String rubbishQuery(String rubbishName){
-        //例子：https://quark.sm.cn/api/rest?method=sc.operation_sorting_category&app_chain_name=waste_classify&q=湿纸巾
-        //返回JSON：{"error":0,"data":{"waste_type":"干垃圾或其他垃圾","category":1}}
-        String url = "https://quark.sm.cn/api/rest?method=sc.operation_sorting_category&app_chain_name=waste_classify&q=";
-//        String api1 = url + name;+
-//        String api2 = "https://quark.sm.cn/api/quark_sug?q=罐头是什么垃圾";
-
-        String result = "";
-        String rubbishClassification = "";
-        try {
-            result = GetJSON(url+rubbishName);
-            String []results = result.split("\"");
-            rubbishClassification = results[results.length-4];
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-
-        return rubbishClassification;
-    }
 }
