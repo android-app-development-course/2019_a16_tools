@@ -66,9 +66,6 @@ public class SortFragment extends Fragment {
                 public boolean onTagClick(View view, int position, com.zhy.view.flowlayout.FlowLayout parent) {
 //                    Toast.makeText(getContext(), "点击,"+MainActivity.mVals[position], Toast.LENGTH_SHORT).show();
                     switch (MainActivity.mVals[position]) {
-                        case "打字板":
-                            Toast.makeText(getContext(), "点击," + MainActivity.mVals[position], Toast.LENGTH_SHORT).show();
-                            break;
                         case "随机数生成器":
                             startActivity(new Intent(getActivity(), RandomNumberActivity.class));
                             break;
