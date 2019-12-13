@@ -65,10 +65,9 @@ public class SortFragment extends Fragment {
                 @Override
                 public boolean onTagClick(View view, int position, com.zhy.view.flowlayout.FlowLayout parent) {
 //                    Toast.makeText(getContext(), "点击,"+MainActivity.mVals[position], Toast.LENGTH_SHORT).show();
-                    switch (MainActivity.mVals[position])
-                    {
+                    switch (MainActivity.mVals[position]) {
                         case "打字板":
-                            Toast.makeText(getContext(), "点击,"+MainActivity.mVals[position], Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "点击," + MainActivity.mVals[position], Toast.LENGTH_SHORT).show();
                             break;
                         case "随机数生成器":
                             startActivity(new Intent(getActivity(), RandomNumberActivity.class));
@@ -82,7 +81,9 @@ public class SortFragment extends Fragment {
                         case "取色器":
                             startActivity(new Intent(getActivity(), ColorPickerActivity.class));
                             break;
-                        default:break;
+                        default:
+                            Toast.makeText(getContext(), "该功能正在开发中，敬请期待！", Toast.LENGTH_SHORT).show();
+                            break;
                     }
                     //view.setVisibility(View.GONE);
                     return true;

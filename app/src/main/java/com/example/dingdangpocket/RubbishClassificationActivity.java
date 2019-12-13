@@ -3,7 +3,6 @@ package com.example.dingdangpocket;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -11,7 +10,6 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
-import static android.support.constraint.Constraints.TAG;
 import static com.example.dingdangpocket.HttpUtils.GetJSON;
 
 public class RubbishClassificationActivity extends AppCompatActivity implements View.OnTouchListener {
@@ -81,26 +79,7 @@ public class RubbishClassificationActivity extends AppCompatActivity implements 
             e.printStackTrace();
         }
 
-        /*try {
-            JSONArray obj = new JSONArray(result);
-            for(int i=0;i<obj.length();i++){
-                JSONObject jsonobj = (JSONObject)obj.get(i);
-                if (jsonobj.has("waste_type")){
-                    rubbishClassification = jsonobj.getString("waste_type");
-                    break;
-                }
-            }
-        } catch (JSONException e) {
-            Log.i("JSONException",e.toString());
-        }*/
 
-//        JSONObject jsonobj = JSON.parseObject(result);
-//        JSONObject jsonobj2 = jsonobj.getJSONObject("data");
-//        if(jsonobj2 != null)
-//            rubbishClassification = jsonobj2.getString("waste_type");
-
-
-        //Log.d(TAG, "rubbishClassification: " + rubbishClassification);
         return rubbishClassification;
     }
 }
