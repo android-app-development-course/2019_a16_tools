@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity
     SearchFragment searchFragment;
     public static final String[] mVals = new String[]
             {"打字板", "画板", "表情制作", "带壳截图", "GIF合成分解", "取色器",
-                    "图片压缩", "图片拼接", "图片转链接", "随机数生成器","垃圾分类查询","分贝检测"
-                    ,"取色器"
+                    "图片压缩", "图片拼接", "图片转链接", "随机数生成器","垃圾分类查询","分贝检测",
+                    "Bilibili视频封面提取"
             };
     public static ArrayList<String> collections =
             new ArrayList(Arrays.asList("打字板", "画板"));

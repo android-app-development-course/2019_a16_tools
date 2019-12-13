@@ -16,12 +16,11 @@ class HttpUtils {
     static OkHttpClient client = new OkHttpClient();
     static String GetJSON( String u) throws IOException, InterruptedException {
         jsonStr = "";
-        OkHttpClient okHttpClient = new OkHttpClient();
         final Request request = new Request.Builder()
                 .url(u)
                 .get()//默认就是GET请求，可以不写
                 .build();
-        Call call = okHttpClient.newCall(request);
+        Call call = client.newCall(request);
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {

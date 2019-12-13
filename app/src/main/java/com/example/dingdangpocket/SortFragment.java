@@ -78,6 +78,9 @@ public class SortFragment extends Fragment {
                         case "取色器":
                             startActivity(new Intent(getActivity(), ColorPickerActivity.class));
                             break;
+                        case "Bilibili视频封面提取":
+                            startActivity(new Intent(getActivity(), BilibiliCoversActivity.class));
+                            break;
                         default:
                             Toast.makeText(getContext(), "该功能正在开发中，敬请期待！", Toast.LENGTH_SHORT).show();
                             break;

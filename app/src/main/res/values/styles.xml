@@ -110,4 +110,8 @@
     <style name="launch_button">
         <item name="android:background">@drawable/rounded_edittext</item>
     </style>
+    <style name="ButtonRound" parent="editviewStyle">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@drawable/button_round</item>
+    </style>
 </resources>
