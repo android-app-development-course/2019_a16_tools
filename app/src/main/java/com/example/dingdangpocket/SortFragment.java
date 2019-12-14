@@ -79,10 +79,10 @@ public class SortFragment extends Fragment {
                             startActivity(new Intent(getActivity(), ColorPickerActivity.class));
                             break;
                         case "Bilibili视频封面提取":
-                            startActivity(new Intent(getActivity(), HistoryTodayActivity.class));
+                            startActivity(new Intent(getActivity(), BilibiliCoversActivity.class));
                             break;
                         case "历史上的今天":
-                            startActivity(new Intent(getActivity(), BilibiliCoversActivity.class));
+                            startActivity(new Intent(getActivity(), HistoryTodayActivity.class));
                             break;
                         default:
                             Toast.makeText(getContext(), "该功能正在开发中，敬请期待！", Toast.LENGTH_SHORT).show();

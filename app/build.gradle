@@ -38,5 +38,8 @@ dependencies {
 //    implementation 'com.github.GrenderG:Toasty:1.4.2'
 //    implementation 'com.github.yilylong:CBDialog:v1.0.7'
     implementation 'com.squareup.okhttp3:okhttp:4.2.2'//https://github.com/square/okhttp
-    implementation 'com.github.shixiuwen:colorpicker:v1.0.3'    //取色器 
+    implementation 'com.github.shixiuwen:colorpicker:v1.0.3'    //取色器
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
 }
