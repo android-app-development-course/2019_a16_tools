@@ -2,6 +2,7 @@ package com.example.dingdangpocket;
 
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
@@ -23,6 +24,10 @@ public class SoundActivity extends AppCompatActivity
     private Button btn_start;
     private Button btn_stop;
     private TextView tv;
+    private TextView tv2;
+
+    private String []color = {"#767676", "#9bd81c", "#93c42d","#f9ff00","#ffb700","#ff4c00"};
+    private String [] description = {"寂静", "安静", "耳边的喃喃细语", "正常交谈", "吵闹", "开始损害听力"};
 
     static final int SAMPLE_RATE_IN_HZ = 8000;
     static final int BUFFER_SIZE = AudioRecord.getMinBufferSize(SAMPLE_RATE_IN_HZ,
@@ -39,6 +44,8 @@ public class SoundActivity extends AppCompatActivity
         btn_start = findViewById(R.id.button_sound_start);
         btn_stop = findViewById(R.id.button_sound_stop);
         tv = findViewById(R.id.textview_sound_db);
+        tv2 = findViewById(R.id.textview_sound_dscp);
+        tv2.setTextColor(Color.parseColor(color[0]));
 
         btn_stop.setOnClickListener(this);
         btn_start.setOnClickListener(this);
@@ -86,6 +93,8 @@ public class SoundActivity extends AppCompatActivity
             case R.id.button_sound_stop:
                 isGetVoiceRun = false;
                 tv.setText("0");
+                tv2.setTextColor(Color.parseColor(color[0]));
+                tv2.setText(description[0]);
                 break;
             default:break;
         }
@@ -121,12 +130,27 @@ public class SoundActivity extends AppCompatActivity
                 double mean = v / (double) r;
                 double volume = 10 * Math.log10(mean);
 
-                tv.setText(String.valueOf((int)volume));
+                int temp = (int)volume;
+                int t = 0;
+                if(temp <= 15){
+                    t = 0;
+                }else if(temp <= 20){
+                    t = 1;
+                }else if(temp <= 40){
+                    t = 2;
+                }else if(temp <= 60){
+                    t = 3;
+                }else if(temp <= 70){
+                    t = 4;
+                }else t = 5;
+                tv.setText(String.valueOf(temp));
+                tv2.setTextColor(Color.parseColor(color[t]));
+                tv2.setText(description[t]);
 
                 // 大概一秒十次
                 synchronized (mLock) {
                     try {
-                        mLock.wait(100);
+                        mLock.wait(200);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

@@ -34,6 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="#颜色代号"
+        android:textIsSelectable="true"
         android:textSize="60sp"
         android:layout_gravity="center"/>
 

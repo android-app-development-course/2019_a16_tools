@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dingdangpocket.example.diary.DiaryMainActivity;
+import com.example.dingdangpocket.example.painting.PaintingActivity;
 import com.zhy.view.flowlayout.FlowLayout;
 import com.zhy.view.flowlayout.TagAdapter;
 import com.zhy.view.flowlayout.TagFlowLayout;
@@ -65,7 +67,11 @@ public class SortFragment extends Fragment {
                 @Override
                 public boolean onTagClick(View view, int position, com.zhy.view.flowlayout.FlowLayout parent) {
 //                    Toast.makeText(getContext(), "点击,"+MainActivity.mVals[position], Toast.LENGTH_SHORT).show();
-                    switch (MainActivity.mVals[position]) {
+                    switch (MainActivity.mVals[position])
+                    {
+                        case "打字板":
+                            Toast.makeText(getContext(), "点击,"+MainActivity.mVals[position], Toast.LENGTH_SHORT).show();
+                            break;
                         case "随机数生成器":
                             startActivity(new Intent(getActivity(), RandomNumberActivity.class));
                             break;
@@ -77,6 +83,12 @@ public class SortFragment extends Fragment {
                             break;
                         case "取色器":
                             startActivity(new Intent(getActivity(), ColorPickerActivity.class));
+                            break;
+                        case "画板":
+                            startActivity(new Intent(getActivity(), PaintingActivity.class));
+                            break;
+                        case "便签":
+                            startActivity(new Intent(getActivity(), DiaryMainActivity.class));
                             break;
                         case "Bilibili视频封面提取":
                             startActivity(new Intent(getActivity(), BilibiliCoversActivity.class));
