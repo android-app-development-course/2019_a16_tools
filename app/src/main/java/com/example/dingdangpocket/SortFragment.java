@@ -79,6 +79,9 @@ public class SortFragment extends Fragment {
                             startActivity(new Intent(getActivity(), ColorPickerActivity.class));
                             break;
                         case "Bilibili视频封面提取":
+                            startActivity(new Intent(getActivity(), HistoryTodayActivity.class));
+                            break;
+                        case "历史上的今天":
                             startActivity(new Intent(getActivity(), BilibiliCoversActivity.class));
                             break;
                         default:
