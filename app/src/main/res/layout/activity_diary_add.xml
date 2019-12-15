@@ -8,12 +8,12 @@
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
-        app:title="添加"
         android:id="@+id/activity_add_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimaryDark"
         app:titleTextColor="#FFFFFF"
+        app:title="添加"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <ScrollView

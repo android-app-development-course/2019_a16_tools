@@ -8,12 +8,11 @@
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
-        app:title="查看"
         android:id="@+id/activity_read_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimaryDark"
-
+        app:title="查看"
         app:titleTextColor="#FFFFFF"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
