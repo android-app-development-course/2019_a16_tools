@@ -49,6 +49,7 @@ public class LVHistoryTodayAdapter extends BaseAdapter {
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
+            viewHolder.clear();
         }
         viewHolder.tv_date.setText(item.getYear());
         viewHolder.tv_title.setText(item.getTitle());

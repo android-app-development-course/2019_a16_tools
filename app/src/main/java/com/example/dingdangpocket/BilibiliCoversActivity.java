@@ -12,10 +12,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
-import static com.example.dingdangpocket.HttpUtils.*;
+import static com.example.dingdangpocket.HttpUtils.GetImage;
+import static com.example.dingdangpocket.HttpUtils.GetJSON;
 
 public class BilibiliCoversActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -81,17 +82,17 @@ public class BilibiliCoversActivity extends AppCompatActivity implements View.On
             default:break;
         }
     }
-    String getImgUrl(String html){
+    String getImgUrl(String jsonStr){
 //"pic":"http://i0.hdslb.com/bfs/archive/d52994a1876d07a975dc6683b78a898d9b581208.png"
-        String regex = "\"pic\":\"([a-zA-z]+://[^\\s]*.(png|jpg))\"";
-        Pattern p = Pattern.compile(regex);
-        Matcher m = p.matcher(html);
-        String s = "";
-        if (m.find()) {
-            s = m.group(1);
-            String[] ary1 = s.split("\"");
-            s = ary1[ary1.length-1];
+        String picUrl = "";
+        Gson gson = new Gson();
+        JsonObject jsonObject = gson.fromJson(jsonStr,JsonObject.class);
+        String code = jsonObject.get("code").toString();
+        if(code.equals("0")){
+            JsonObject data = jsonObject.get("data").getAsJsonObject();
+            picUrl = data.get("pic").toString().replaceAll("^\"|\"$","");
+
         }
-        return s;
+        return picUrl;
     }
 }
