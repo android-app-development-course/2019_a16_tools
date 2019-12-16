@@ -20,4 +20,22 @@
             <enum name="right" value="1" />
         </attr>
     </declare-styleable>
+    <declare-styleable name="Clock">
+        <!--数值-->
+        <attr name="mClockRingWidth" format="dimension"/>
+        <attr name="mDefaultWidth" format="dimension"/>
+        <attr name="mDefaultLength" format="dimension"/>
+        <attr name="mSpecialWidth" format="dimension"/>
+        <attr name="mSpecialLength" format="dimension"/>
+        <attr name="mHWidth" format="dimension"/>
+        <attr name="mMWidth" format="dimension"/>
+        <attr name="mSWidth" format="dimension"/>
+        <!--颜色-->
+        <attr name="mCircleColor" format="color"/>
+        <attr name="mHColor" format="color"/>
+        <attr name="mMColor" format="color"/>
+        <attr name="mSColor" format="color"/>
+        <attr name="mNumColor" format="color"/>
+
+    </declare-styleable>
 </resources>

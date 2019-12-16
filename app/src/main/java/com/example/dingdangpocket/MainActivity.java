@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity
     public static final String[] mVals = new String[]
             {"打字板",  "表情制作", "带壳截图", "GIF合成分解",
                     "图片压缩", "图片拼接", "图片转链接", "随机数生成器","垃圾分类查询","分贝检测"
-                    ,"取色器","画板","便签","历史上的今天","Bilibili视频封面提取"
+                    ,"取色器","画板","便签","历史上的今天","Bilibili视频封面提取","生命时钟"
             };
     public static ArrayList<String> collections =
             new ArrayList(Arrays.asList("打字板", "画板"));
@@ -184,6 +184,9 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(MainActivity.this, AboutActivity.class));
         }else if(id==R.id.logout){
             startActivity(new Intent(this,Login.class));
+        }
+        else if(id==R.id.exit){
+            finish();
         }
 
         // 注释掉之后，关闭activity之后左侧菜单还显示

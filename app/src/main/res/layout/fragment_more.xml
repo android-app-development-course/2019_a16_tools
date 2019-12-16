@@ -94,14 +94,14 @@
                 style="@style/TextDetail"
                 android:text="无损压缩图片"/>
 
-            <com.example.dingdangpocket.NestedListView
-                android:id="@+id/lv_recommend_tools"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:divider="@drawable/textview_border"
-                android:dividerHeight="2sp">
+<!--            <com.example.dingdangpocket.NestedListView-->
+<!--                android:id="@+id/lv_recommend_tools"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:divider="@drawable/textview_border"-->
+<!--                android:dividerHeight="2sp">-->
 
-            </com.example.dingdangpocket.NestedListView>
+<!--            </com.example.dingdangpocket.NestedListView>-->
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>

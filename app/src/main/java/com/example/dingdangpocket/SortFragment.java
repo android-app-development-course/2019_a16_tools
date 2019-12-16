@@ -67,8 +67,10 @@ public class SortFragment extends Fragment {
                 @Override
                 public boolean onTagClick(View view, int position, com.zhy.view.flowlayout.FlowLayout parent) {
 //                    Toast.makeText(getContext(), "点击,"+MainActivity.mVals[position], Toast.LENGTH_SHORT).show();
-                    switch (MainActivity.mVals[position])
-                    {
+                    switch (MainActivity.mVals[position]) {
+                        case "生命时钟":
+                            startActivity(new Intent(getActivity(),time.class));
+                            break;
                         case "打字板":
                             Toast.makeText(getContext(), "点击,"+MainActivity.mVals[position], Toast.LENGTH_SHORT).show();
                             break;

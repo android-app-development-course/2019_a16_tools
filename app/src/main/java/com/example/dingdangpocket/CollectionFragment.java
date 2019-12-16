@@ -61,6 +61,7 @@ public class CollectionFragment extends Fragment {
                 public boolean onTagClick(View view, int position, com.zhy.view.flowlayout.FlowLayout parent) {
                     Toast.makeText(getActivity(), mVals[position], Toast.LENGTH_SHORT).show();
                     //view.setVisibility(View.GONE);
+
                     return true;
                 }
             });
