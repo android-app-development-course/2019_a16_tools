@@ -1,11 +1,11 @@
 package com.example.dingdangpocket;
 
 import android.Manifest;
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -44,6 +45,8 @@ public class BilibiliCoversActivity extends AppCompatActivity
     private String video_id;
     private ImageView img_video_cover;
     private Bitmap bitmap_video_cover;
+    final String pictures = "pictures";
+    final String bilibili = "bilibili";
     private final String bilibili_address = "https://api.bilibili.com/x/web-interface/view?aid=";
     private static final int JSON_OK = 1000;
     private static final int JSON_NO = 1001;
@@ -77,11 +80,11 @@ public class BilibiliCoversActivity extends AppCompatActivity
         }
     };
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_bilibili_covers_menu, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.activity_bilibili_covers_menu, menu);
+//        return true;
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -93,6 +96,9 @@ public class BilibiliCoversActivity extends AppCompatActivity
                 }else {
                     EasyPermissions.requestPermissions(this,getString(R.string.view_img),VIEW_SAVED_COVER,perms);
                 }
+                break;
+            case android.R.id.home://点击了返回按钮
+                finish();
                 break;
             default:
                 break;
@@ -111,6 +117,7 @@ public class BilibiliCoversActivity extends AppCompatActivity
         Toolbar tb = findViewById(R.id.toolbar_bilibili);
         setSupportActionBar(tb);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
         et_video_id = findViewById(R.id.et_video_id);
         img_video_cover = findViewById(R.id.img_video_cover);
         findViewById(R.id.btn_get).setOnClickListener(this);
@@ -182,8 +189,7 @@ public class BilibiliCoversActivity extends AppCompatActivity
     private void saveCover(){
         String path = Environment.getExternalStoragePublicDirectory("").getAbsolutePath();
         if (null != path) {
-            final String bilibili = "bilibili";
-            path = path + "/" + getString(R.string.app_name) + "/" + bilibili;
+            path = path + "/" + getString(R.string.app_name)+ "/"+pictures+ "/" + bilibili;
             File file = new File(path);
             if (!file.exists()) {
                 file.mkdirs();
@@ -203,7 +209,10 @@ public class BilibiliCoversActivity extends AppCompatActivity
                 } catch (IOException e) {
                     Log.e("fileOutputStream#close",e.toString());
                 }
-                Toast.makeText(this,R.string.save_success,Toast.LENGTH_SHORT).show();
+                String msg = getString(R.string.save_as) +"：/"+
+                        getString(R.string.app_name) + "/" + pictures +"/"+bilibili+
+                        video_id+".jpg";
+                Toast.makeText(this,msg,Toast.LENGTH_LONG).show();
                 return;
             } catch (FileNotFoundException e) {
                 Log.e("new FileOutputStream",e.toString());
@@ -217,21 +226,38 @@ public class BilibiliCoversActivity extends AppCompatActivity
 
         String path = Environment.getExternalStoragePublicDirectory("").getAbsolutePath();
         if (null != path) {
-            final String bilibili = "bilibili";
-            path = path + "/" + getString(R.string.app_name) + "/" + bilibili;
-            File file = new File(path);
+
+            path = path + "/" + getString(R.string.app_name) +"/" + pictures +"/" + bilibili +"/";
+            File file = new File(Uri.parse(path).getPath());
             if (!file.exists()) {
                 file.mkdirs();
             }
+//            Uri uri;
+//            if(Build.VERSION.SDK_INT>=24){
+//                uri = FileProvider.getUriForFile(this,
+//                        "com.example.dingdangpocket",file);
+//            }else {
+//                uri = Uri.parse(path);
+//            }
+
+//            uri = Uri.parse(path);
             Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-            Uri uri = FileProvider.getUriForFile(this,"com.example.dingdangpocket.FileProvider",file);
-            intent.setData(uri);
-            intent.addCategory(Intent.CATEGORY_DEFAULT);
-            try {
-                startActivity(intent);
-            }catch (ActivityNotFoundException e){
-                Log.e("startActivity",e.toString());
+            if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N) {
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                Uri contentUri = FileProvider.getUriForFile(this,
+                        "com.example.dingdangpocket.fileProvider",file);
+                intent.setDataAndType(contentUri,"image/*");
+            }else {
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
+                intent.setDataAndType(Uri.fromFile(file),"image/*");
             }
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+            if(intent.resolveActivity(getPackageManager())!=null){
+                startActivity(intent);
+            }else {
+                Log.d("resolveActivity","false");
+            }
+
         }
     }
 }

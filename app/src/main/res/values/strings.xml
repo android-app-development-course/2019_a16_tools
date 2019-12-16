@@ -70,10 +70,16 @@
     <string name="network_error">网络出现了问题</string>
     <string name="incorrect_video_id">视频av号不正确</string>
     <string name="storage_img">保存图片需要开启存储权限</string>
-    <string name="save_success">保存成功</string>
+    <string name="save_as">已保存在</string>
     <string name="save_fail">保存失败</string>
     <string name="view_saved_cover">查看已保存的封面</string>
     <string name="title_bilibili_cover">Bilibili视频封面提取</string>
     <string name="get_success">提取成功</string>
     <string name="view_img">查看已保存封面需要开启读取储存权限</string>
+    <string name="title_rubbish_classify">垃圾分类查询</string>
+    <string name="rubbish_name">垃圾名称</string>
+    <string name="rubbish_classify_name">垃圾分类名称</string>
+    <string name="query_success">查询成功</string>
+    <string name="query_error">该垃圾暂未识别</string>
+    <string name="title_history_today">历史上的今天</string>
 </resources>

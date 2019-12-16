@@ -120,8 +120,10 @@
     </style>
     <style name="editview">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">45sp</item>
-        <item name="android:layout_margin">20sp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">20sp</item>
+        <item name="android:layout_marginStart">20sp</item>
+        <item name="android:layout_marginEnd">20sp</item>
         <item name="android:textSize">18sp</item>
         <item name="android:background">@drawable/rounded_edittext</item>
         <item name="android:lines">1</item>

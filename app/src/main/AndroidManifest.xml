@@ -22,15 +22,17 @@
         <activity android:name=".BilibiliCoversActivity"></activity>
 
         <provider
-            android:authorities="com.example.dingdangpocket"
+            android:authorities="com.example.dingdangpocket.fileProvider"
             android:name="android.support.v4.content.FileProvider"
             android:exported="false"
             android:grantUriPermissions="true"
-            tools:replace="android:authorities">
+            tools:replace="android:authorities"
+            >
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/mis_provider_paths"
-                tools:replace="android:resource"/>
+                tools:replace="android:resource"
+                />
 
         </provider>
         <activity android:name=".HistoryTodayActivity"></activity>

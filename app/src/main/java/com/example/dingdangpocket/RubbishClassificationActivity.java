@@ -1,34 +1,45 @@
 package com.example.dingdangpocket;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
+import java.util.Objects;
 
 import static com.example.dingdangpocket.HttpUtils.GetJSON;
 
 public class RubbishClassificationActivity extends AppCompatActivity implements View.OnTouchListener {
 
     private EditText et_rubbishName;
+    private String rubbishName;
     final String api_waste_classify = "https://quark.sm.cn/api/rest?method=sc.operation_sorting_category&app_chain_name=waste_classify&q=";
     private static final int OK = 1;
     private static final int NO = 0;
+    private TextView tv_rubbish_name;
+    private TextView tv_rubbish_classify;
+    private ImageView img_rubbish_classify;
+
     Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what){
                 //加载网络成功进行UI的更新,处理得到的图片资源
                 case OK:
-                    String  jsonStr= (String)msg.obj;
-                    String []results = jsonStr.split("\"");
-                    Toast.makeText(RubbishClassificationActivity.this,results[results.length-4], Toast.LENGTH_LONG).show();
+                    getData((String)msg.obj);
                     break;
                 //当加载网络失败执行的逻辑代码
                 case NO:
@@ -37,16 +48,59 @@ public class RubbishClassificationActivity extends AppCompatActivity implements 
             }
         }
     };
+
+    private void getData(String jsonStr) {
+        Gson gson = new Gson();
+        JsonObject jsonObject = gson.fromJson(jsonStr, JsonObject.class);
+        JsonObject data = jsonObject.get("data").getAsJsonObject();
+        String waste_type = data.get("waste_type").toString();
+        if(!waste_type.equals("")) {
+            int category = Integer.parseInt(data.get("category").toString());
+            String type[] = {"干垃圾", "湿垃圾", "有害垃圾", "可回收物"};
+            int img_id[] = {R.drawable.ic_ganlaji, R.drawable.ic_shilaji,
+                    R.drawable.ic_youhailaji, R.drawable.ic_kehuishouwu};
+            tv_rubbish_name.setText(rubbishName);
+            tv_rubbish_classify.setText(type[category - 1]);
+            img_rubbish_classify.setImageDrawable(
+                    ContextCompat.getDrawable(this, img_id[category - 1]));
+            findViewById(R.id.layout_rubbish_classify).setVisibility(View.VISIBLE);
+            Toast.makeText(this,R.string.query_success,Toast.LENGTH_SHORT).show();
+        }else{
+            findViewById(R.id.layout_rubbish_classify).setVisibility(View.INVISIBLE);
+            Toast.makeText(this,R.string.query_error,Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rubbish_classification);
         init();
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home://点击了返回按钮
+                finish();
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     public void init(){
         et_rubbishName = findViewById(R.id.et_rubbish_query);
         et_rubbishName.setOnTouchListener(this);
+        tv_rubbish_classify = findViewById(R.id.tv_rubbish_classify);
+        tv_rubbish_name = findViewById(R.id.tv_rubbish_name);
+        img_rubbish_classify = findViewById(R.id.img_rubbish_classify);
+        findViewById(R.id.layout_rubbish_classify).setVisibility(View.INVISIBLE);
+        Toolbar tb = findViewById(R.id.toolbar_rubbish_classify);
+        setSupportActionBar(tb);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
     }
     public boolean touch_et(View view, MotionEvent motionEvent){
         EditText editText = (EditText) view;
@@ -70,7 +124,7 @@ public class RubbishClassificationActivity extends AppCompatActivity implements 
             case R.id.et_rubbish_query:
                 if(touch_et(view, motionEvent)){
                     //点击了垃圾分类查询右边的搜索图标
-                    String rubbishName = et_rubbishName.getText().toString();
+                    rubbishName = et_rubbishName.getText().toString();
                     GetJSON(api_waste_classify+rubbishName,
                             handler,OK,NO);
 //                    rubbishClassification = rubbishQuery(rubbishName);

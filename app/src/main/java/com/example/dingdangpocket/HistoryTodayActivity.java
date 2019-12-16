@@ -1,12 +1,11 @@
 package com.example.dingdangpocket;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ImageView;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -14,11 +13,10 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
-import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
+import java.util.Objects;
 
 import static com.example.dingdangpocket.HttpUtils.GetJSON;
 
@@ -26,8 +24,6 @@ public class HistoryTodayActivity extends AppCompatActivity {
 
     private static final int JSON_OK = 1000;
     private static final int JSON_NO = 1001;
-    private static final int IMG_OK = 1002;
-    private static final int IMG_NO = 1003;
     Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -36,16 +32,7 @@ public class HistoryTodayActivity extends AppCompatActivity {
                 case JSON_OK:
                     getData((String) msg.obj);
                     break;
-                case IMG_OK:
-                    //通过message，拿到字节数组
-                    byte[] Picture = (byte[]) msg.obj;
-                    //使用BitmapFactory工厂，把字节数组转化为bitmap
-                    Bitmap bitmap = BitmapFactory.decodeByteArray(Picture, 0, Picture.length);
-                    //通过imageview，设置图片
-                    ((ImageView)findViewById(R.id.img_test)).setImageBitmap(bitmap);
-                    break;
                 case JSON_NO:
-                case IMG_NO:
                     Toast.makeText(HistoryTodayActivity.this, "网络出现了问题", Toast.LENGTH_SHORT).show();
                     break;
             }
@@ -57,8 +44,22 @@ public class HistoryTodayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_history_today);
         init();
     }
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home://点击了返回按钮
+                finish();
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
     private void init() {
+        Toolbar tb = findViewById(R.id.toolbar_history_today);
+        setSupportActionBar(tb);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
         final String appid = "392811492abcabf76053bf618e571e0e";
         final String httpUrl = "https://api.shenjian.io/todayOnhistory/queryEvent";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy,MM/dd,HH:mm:ss");
