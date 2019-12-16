@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">叮当猫口袋</string>
+    <string name="app_name">DingDangPocket</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="showtime">7</string>
@@ -50,5 +50,15 @@
 
     <string name="rubbish_query_hint">请输入垃圾名称，如湿纸巾</string>
     <string name="get">提取</string>
+    <string name="save_cover">保存封面</string>
     <string name="video_id_hint">请输入视频av号，如av19390801</string>
+    <string name="network_error">网络出现了问题</string>
+    <string name="incorrect_video_id">视频av号不正确</string>
+    <string name="storage_img">保存图片需要开启存储权限</string>
+    <string name="save_success">保存成功</string>
+    <string name="save_fail">保存失败</string>
+    <string name="view_saved_cover">查看已保存的封面</string>
+    <string name="title_bilibili_cover">Bilibili视频封面提取</string>
+    <string name="get_success">提取成功</string>
+    <string name="view_img">查看已保存封面需要开启读取储存权限</string>
 </resources>

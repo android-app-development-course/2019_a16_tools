@@ -3,22 +3,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".BilibiliCoversActivity"
     android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_bilibili"
+            app:title="@string/title_bilibili_cover"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            />
+    </android.support.design.widget.AppBarLayout>
+
     <EditText
         android:id="@+id/et_video_id"
-        style="@style/editviewStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/video_id_hint"/>
+        style="@style/editview"
+        android:hint="@string/video_id_hint" />
     <Button
         android:id="@+id/btn_get"
         style="@style/ButtonRound"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/get"/>
-    <ImageView
-        android:id="@+id/img_video_cover"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:id="@+id/layout_save_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="invisible">
+        <Button
+            android:id="@+id/btn_save_img"
+            style="@style/ButtonRoundBorder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/save_cover"/>
+        <ImageView
+            android:id="@+id/img_video_cover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
 </LinearLayout>

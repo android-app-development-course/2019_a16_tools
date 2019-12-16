@@ -50,8 +50,9 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.2.2'//https://github.com/square/okhttp
     implementation 'com.github.shixiuwen:colorpicker:v1.0.3'    //取色器
     implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    implementation 'com.github.bumptech.glide:glide:4.8.0' //using the Android Support Library
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+    implementation 'pub.devrel:easypermissions:2.0.1'   //using the Android Support Library
 
     //测试类
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
