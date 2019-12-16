@@ -1,11 +1,11 @@
 package com.example.dingdangpocket;
-import java.util.Random;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.util.Random;
 
 public class RandomNumberActivity extends AppCompatActivity
         implements View.OnClickListener{
@@ -35,7 +35,11 @@ public class RandomNumberActivity extends AppCompatActivity
 
                 int min = Integer.valueOf(str1);
                 int max = Integer.valueOf(str2);
-                if(min > max) return;
+                if(min > max)
+                {
+                    tv.setText("0");
+                    return;
+                }
                 else if(min == max) {
                     tv.setText(Integer.toString(min));
                     return;

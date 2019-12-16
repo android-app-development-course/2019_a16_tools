@@ -1,22 +1,17 @@
 package com.example.dingdangpocket;
 
-import android.content.DialogInterface;
+import android.Manifest;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.Random;
 
 public class SoundActivity extends AppCompatActivity
         implements View.OnClickListener{
@@ -26,7 +21,7 @@ public class SoundActivity extends AppCompatActivity
     private TextView tv;
     private TextView tv2;
 
-    private String []color = {"#767676", "#9bd81c", "#93c42d","#f9ff00","#ffb700","#ff4c00"};
+    private String []color = {"#767676", "#9bd81c", "#93c42d","#4f0093ff","#ffb700","#ff4c00"};
     private String [] description = {"寂静", "安静", "耳边的喃喃细语", "正常交谈", "吵闹", "开始损害听力"};
 
     static final int SAMPLE_RATE_IN_HZ = 8000;
@@ -57,7 +52,9 @@ public class SoundActivity extends AppCompatActivity
         boolean permission = (PackageManager.PERMISSION_GRANTED ==
                 pm.checkPermission("android.permission.RECORD_AUDIO", "com.example.dingdangpocket"));
         if (!permission) {
-            AlertDialog.Builder normalDialog =
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        1);
+            /*AlertDialog.Builder normalDialog =
                     new AlertDialog.Builder(SoundActivity.this);
             normalDialog.setTitle("提示");
             normalDialog.setMessage("请打开麦克风权限后重新打开应用！");
@@ -79,7 +76,7 @@ public class SoundActivity extends AppCompatActivity
             normalDialog.show();
 
             btn_start.setEnabled(false);
-            btn_start.setEnabled(false);
+            btn_start.setEnabled(false);*/
         }
 
     }
@@ -150,7 +147,7 @@ public class SoundActivity extends AppCompatActivity
                 // 大概一秒十次
                 synchronized (mLock) {
                     try {
-                        mLock.wait(200);
+                        mLock.wait(400);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

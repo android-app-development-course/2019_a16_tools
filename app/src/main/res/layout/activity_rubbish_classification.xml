@@ -27,6 +27,8 @@
         android:paddingEnd="10sp"
         android:hint="@string/rubbish_query_hint"
         android:drawableEnd="@drawable/ic_search"
+        android:imeOptions="actionSearch"
+        android:singleLine="true"
         />
     <LinearLayout
         android:id="@+id/layout_rubbish_classify"

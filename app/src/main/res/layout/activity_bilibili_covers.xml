@@ -26,6 +26,7 @@
         style="@style/editview"
         android:layout_height="45sp"
         android:hint="@string/video_id_hint"
+        android:singleLine="true"
         />
     <Button
         android:id="@+id/btn_get"

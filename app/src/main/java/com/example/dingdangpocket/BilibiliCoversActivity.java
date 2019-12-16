@@ -1,6 +1,7 @@
 package com.example.dingdangpocket;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,9 +16,9 @@ import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -128,6 +129,8 @@ public class BilibiliCoversActivity extends AppCompatActivity
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_get:
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
                 video_id = et_video_id.getText().toString();
                 video_id = video_id.toLowerCase();
                 if(video_id.contains("av")){
