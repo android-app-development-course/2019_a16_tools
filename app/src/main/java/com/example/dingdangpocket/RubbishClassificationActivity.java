@@ -1,7 +1,6 @@
 package com.example.dingdangpocket;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -13,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +24,7 @@ import java.util.Objects;
 
 import static com.example.dingdangpocket.HttpUtils.GetJSON;
 
-public class RubbishClassificationActivity extends AppCompatActivity implements View.OnTouchListener {
+public class RubbishClassificationActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText et_rubbishName;
     private String rubbishName;
@@ -34,6 +34,7 @@ public class RubbishClassificationActivity extends AppCompatActivity implements 
     private TextView tv_rubbish_name;
     private TextView tv_rubbish_classify;
     private ImageView img_rubbish_classify;
+    private ImageButton im_search_rubbish;
 
     Handler handler = new Handler(){
         @Override
@@ -95,10 +96,11 @@ public class RubbishClassificationActivity extends AppCompatActivity implements 
 
     public void init(){
         et_rubbishName = findViewById(R.id.et_rubbish_query);
-        et_rubbishName.setOnTouchListener(this);
         tv_rubbish_classify = findViewById(R.id.tv_rubbish_classify);
         tv_rubbish_name = findViewById(R.id.tv_rubbish_name);
         img_rubbish_classify = findViewById(R.id.img_rubbish_classify);
+        im_search_rubbish=(ImageButton) findViewById(R.id.img_rubbish_search);
+        im_search_rubbish.setOnClickListener(this);
         findViewById(R.id.layout_rubbish_classify).setVisibility(View.INVISIBLE);
         Toolbar tb = findViewById(R.id.toolbar_rubbish_classify);
         setSupportActionBar(tb);
@@ -106,7 +108,7 @@ public class RubbishClassificationActivity extends AppCompatActivity implements 
         Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
     }
 
-    public boolean touch_et(View view, MotionEvent motionEvent){
+    /*public boolean touch_et(View view, MotionEvent motionEvent){
         EditText editText = (EditText) view;
         // getCompoundDrawables()得到一个长度为4的数组，分别表示左上右下四张图片
         Drawable drawable = editText.getCompoundDrawables()[2];
@@ -144,7 +146,7 @@ public class RubbishClassificationActivity extends AppCompatActivity implements 
         }
         view.performClick();
         return false;
-    }
+    }*/
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
@@ -177,4 +179,21 @@ public class RubbishClassificationActivity extends AppCompatActivity implements 
         return false;
     }
 
+    @Override
+    public void onClick(View view) {
+        switch ((view).getId()) {
+            case R.id.img_rubbish_search: {
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+                rubbishName = et_rubbishName.getText().toString();
+                if (rubbishName.equals("")) {
+                    Toast.makeText(this, "请输入垃圾名称", Toast.LENGTH_SHORT).show();
+                    break;
+                }
+                GetJSON(api_waste_classify + rubbishName,
+                        handler, OK, NO);
+                break;
+            }
+        }
+    }
 }

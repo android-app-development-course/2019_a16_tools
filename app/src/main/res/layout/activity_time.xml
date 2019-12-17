@@ -49,7 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="18     年"
+                android:text="0     年"
                 android:gravity="center"
                 android:textSize="26sp"/>
             <TextView
@@ -57,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="共18     天"
+                android:text="累计    0     天"
                 android:gravity="center"
                 android:textSize="26sp"/>
             <TextView
@@ -65,7 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="共18     小时"
+                android:text="累计    0     小时"
                 android:gravity="center"
                 android:textSize="26sp"/>
 
